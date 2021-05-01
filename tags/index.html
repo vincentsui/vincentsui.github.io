@@ -1,86 +1,1119 @@
+<!DOCTYPE html>
 <html>
-  <head>
-  <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Gridea</title>
-<link rel="shortcut icon" href="https://vincentsui.github.io/favicon.ico?v=1619859626658">
-<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
-<link rel="stylesheet" href="https://vincentsui.github.io/styles/main.css">
-<link rel="alternate" type="application/atom+xml" title="Gridea - Atom Feed" href="https://vincentsui.github.io/atom.xml">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+
+<head>
+  <meta charset="UTF-8" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<meta name="keywords" content="Gridea静态个人博客">
+<meta name="description" content="温故而知新">
+<meta name="theme-color" content="#000">
+<title>重生博客</title>
+<link rel="shortcut icon" href="/favicon.ico?v=1619860369708">
+<link rel="stylesheet" href="/styles/main.css">
+<link rel="stylesheet" href="/media/css/pisces.css">
+
+<link rel="stylesheet" href="/media/fonts/font-awesome.css">
+<link
+  href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Rosario:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext"
+  rel="stylesheet" type="text/css">
+
+<link href="/media/hljs/styles/androidstudio.css"
+  rel="stylesheet">
+
+<script src="/media/hljs/highlight.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.0/velocity.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.0/velocity.ui.min.js"></script>
+
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
 
 
-  <meta name="description" content="温故而知新" />
-  </head>
-  <body>
-    <div class="main">
-      <div class="main-content">
-        <div class="site-header">
-  <a href="https://vincentsui.github.io">
-  <img class="avatar" src="https://vincentsui.github.io/images/avatar.png?v=1619859626658" alt="">
-  </a>
-  <h1 class="site-title">
-    Gridea
-  </h1>
-  <p class="site-description">
-    温故而知新
-  </p>
-  <div class="menu-container">
-    
-      
-        <a href="/" class="menu">
-          首页
-        </a>
-      
-    
-      
-        <a href="/archives" class="menu">
-          归档
-        </a>
-      
-    
-      
-        <a href="/tags" class="menu">
-          标签
-        </a>
-      
-    
-      
-        <a href="/post/about" class="menu">
-          关于
-        </a>
-      
-    
-  </div>
-  <div class="social-container">
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-  </div>
-</div>
+</head>
 
-
-        <div class="tags-container">
+<body>
+  <div class="head-top-line"></div>
+  <div class="header-box">
+    
+<div class="pisces">
+  <header class="header  ">
+    <div class="blog-header box-shadow-wrapper bg-color " id="header">
+      <div class="nav-toggle" id="nav_toggle">
+        <div class="toggle-box">
+          <div class="line line-top"></div>
+          <div class="line line-center"></div>
+          <div class="line line-bottom"></div>
+        </div>
+      </div>
+      <div class="site-meta">       
+        <div class="site-title">
+          
+            <a href="/" class="brand">
+              <span>重生博客</span>
+            </a>  
           
         </div>
-
-        <div class="site-footer">
-  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
-  <a class="rss" href="https://vincentsui.github.io/atom.xml" target="_blank">
-    <i class="ri-rss-line"></i> RSS
-  </a>
+        
+          <p class="subtitle">精于心，简于形</p>
+        
+      </div>
+      <nav class="site-nav" id="site_nav">
+        <ul id="nav_ul">
+          
+            
+            
+              
+            
+            <li class="nav-item ">
+              
+              
+                <a href="/" target="_self">
+                  <i class="fa fa-home"></i> 首页
+                </a>
+              
+            </li>
+          
+            
+            
+              
+            
+            <li class="nav-item ">
+              
+              
+                <a href="/archives/" target="_self">
+                  <i class="fa fa-archive"></i> 归档
+                </a>
+              
+            </li>
+          
+            
+            
+              
+            
+            <li class="nav-item nav-item-active">
+              
+              
+                <a href="/tags/" target="_self">
+                  <i class="fa fa-tags"></i> 标签
+                </a>
+              
+            </li>
+          
+            
+            
+              
+            
+            <li class="nav-item ">
+              
+              
+                <a href="/post/about/" target="_self">
+                  <i class="fa fa-user"></i> 关于
+                </a>
+              
+            </li>
+          
+          
+            
+              <li class="nav-item ">
+                <a href="/friends/" target="_self">
+                  
+                    <i class="fa fa-address-book"></i> 友情链接
+                  
+                </a>
+              </li>
+            
+          
+        </ul>
+      </nav>
+    </div>
+  </header>
 </div>
 
+<script type="text/javascript"> 
+ 
+  let showNav = true;
+
+  let navToggle = document.querySelector('#nav_toggle'),
+  siteNav = document.querySelector('#site_nav');
+  
+  function navClick() {
+    let sideBar = document.querySelector('.sidebar');
+    let navUl = document.querySelector('#nav_ul');
+    navToggle.classList.toggle('nav-toggle-active');
+    siteNav.classList.toggle('nav-menu-active');
+    if (siteNav.classList.contains('nav-menu-active')) {
+      siteNav.style = "height: " + (navUl.children.length * 42) +"px !important";
+    } else {
+      siteNav.style = "";
+    }
+  }
+
+  navToggle.addEventListener('click',navClick);  
+</script>
+  </div>
+  <div class="main-continer">
+    
+    <div
+      class="section-layout  pisces">
+      <div class="section-layout-wrapper">
+        <div id="sidebarMeta" class="sidebar">
+    
+<div class="sidebar-wrapper box-shadow-wrapper bg-color">
+  <div class="sidebar-item">
+    <img class="site-author-image right-motion" src="/images/avatar.png"/>
+    <p class="site-author-name">适用 Gemini,Pisces 布局,版权说明需配置</p>
+    
+  </div>
+  <div class="sidebar-item side-item-stat right-motion">
+    <div class="sidebar-item-box">
+      <a href="/archives/">
+        
+        <span class="site-item-stat-count">1</span>
+        <span class="site-item-stat-name">文章</span>
+      </a>
+    </div>
+    <div class="sidebar-item-box">
+      <a href="">
+        <span class="site-item-stat-count">0</span>
+        <span class="site-item-stat-name">分类</span>
+      </a>
+    </div>
+    <div class="sidebar-item-box">
+      <a href="/tags/">
+        <span class="site-item-stat-count">0</span>
+        <span class="site-item-stat-name">标签</span>
+      </a>
+    </div>
+  </div>
+  
+    
+      <div class="sidebar-item" style="border-top: 1px dotted #ccc; margin-top: 10px;">
+      </div>
+    
+  
+  
+
+
+</div>
+</div>
+<script>
+  let sidebarMeta = document.querySelector('#sidebarMeta');
+  let scheme = 'pisces';
+  let sidebarWrapper = document.querySelector('.sidebar-wrapper');
+  if (sidebarMeta && (scheme === 'pisces' || scheme === 'gemini')) {
+    document.addEventListener('scroll', function(e) {
+      if (document.scrollingElement.scrollTop > parseInt(sidebarMeta.style.marginTop) + 10) {
+        sidebarWrapper.classList.add('home-sidebar-fixed')
+      } else {
+        sidebarWrapper.classList.remove('home-sidebar-fixed')
+      }
+    });
+  }
+  </script>
+        <div class="section-box box-shadow-wrapper">
+          <section class="section tags-section bg-color posts-expand">
+            <div class="tags-box">
+  <div class="tag-cloud-title">
+    目前共计 0 个标签
+  </div>
+  <div class="tag-cloud-list" id="tags">
+    
+  </div>
+</div>
+<script>
+
+  let fontStart = 12, fontEnd = 30, colorStart = '#666', colorEnd = '#000';
+  let tags = document.querySelector('#tags').children;
+  let counts = [];
+  for(let i = 0; i < tags.length; i++) {
+    counts.push(tags[i].rel);
+  }
+  let lowest = Math.min.apply(null,counts), highest = Math.max.apply(null,counts);;
+  let range = highest - lowest;
+  if (range === 0) {
+    range = 1;
+  }
+  let fontIncr, colorIncr;
+  fontIncr = (fontEnd - fontStart) / range;
+  
+  let sColorArr = toRGB(colorStart), eColorArr = toRGB(colorEnd);
+
+  for(let i = 0; i < tags.length; i++) {
+    let disCount = tags[i].rel - lowest;
+    let fontSize = fontStart + disCount * fontIncr;
+    let style = 'font-size: ' + fontSize + 'px;';
+    let arr = [];
+    for(let c = 0; c < sColorArr.length; c++) {
+      if (disCount === 0) {
+        disCount = 1;
+      }
+      let val = (sColorArr[c] - eColorArr[c]) / range * disCount;
+      if (val >= 100) {
+        val = eColorArr[c];
+      } else if (val <= 0) {
+        val = sColorArr[c];
+      }
+      arr[c] = Math.floor(val);
+    }
+    style += 'color: ' + toHex(arr);
+    tags[i].style = style;
+  }
+
+  function toRGB(code) {
+    if (code.length === 4) {
+      code = code.replace(/(\w)(\w)(\w)/gi, "\$1\$1\$2\$2\$3\$3");
+    }
+    var hex = /(\w{2})(\w{2})(\w{2})/.exec(code);
+    return [parseInt(hex[1], 16), parseInt(hex[2], 16), parseInt(hex[3], 16)];
+  }
+
+  function toHex(ary) {
+    return "#" + ((1 << 24) + (ary[0] << 16) + (ary[1] << 8) + ary[2]).toString(16).slice(1);
+  }
+
+</script>
+          </section>
+        </div>
       </div>
     </div>
-  </body>
+    <div class="footer-box">
+  <footer class="footer">
+    <div class="copyright">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | © 2019-2020 Theme By <a href="https://github.com/hsxyhao/gridea-theme-next" target="_blank">HsxyHao</a>
+    </div>
+    <div class="poweredby">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+    </div>
+  </footer>
+  
+  
+  <div class="pisces back-to-top" id="back_to_top">
+    <i class="fa fa-arrow-up"></i>
+    
+    <span class="scrollpercent">
+      <span id="back_to_top_text">0</span>%
+    </span>
+    
+  </div>
+  
+  
+  
+</div>
+<script>
+
+  let sideBarOpen = 'sidebar-open';
+  let body = document.body;
+  let back2Top = document.querySelector('#back_to_top'),
+  back2TopText = document.querySelector('#back_to_top_text'),
+  drawerBox = document.querySelector('#drawer_box'),
+  rightSideBar = document.querySelector('.sidebar'),
+  viewport = document.querySelector('body');
+
+  function scrollAnimation(currentY, targetY) {
+   
+    let needScrollTop = targetY - currentY
+    let _currentY = currentY
+    setTimeout(() => {
+      const dist = Math.ceil(needScrollTop / 10)
+      _currentY += dist
+      window.scrollTo(_currentY, currentY)
+      if (needScrollTop > 10 || needScrollTop < -10) {
+        scrollAnimation(_currentY, targetY)
+      } else {
+        window.scrollTo(_currentY, targetY)
+      }
+    }, 1)
+  }
+
+  back2Top.addEventListener("click", function(e) {
+    scrollAnimation(document.scrollingElement.scrollTop, 0);
+    e.stopPropagation();
+    return false;
+  });
+  
+  window.addEventListener('scroll', function(e) {
+    let percent = document.scrollingElement.scrollTop / (document.scrollingElement.scrollHeight - document.scrollingElement.clientHeight) * 100;
+    if (percent > 1 && !back2Top.classList.contains('back-top-active')) {
+      back2Top.classList.add('back-top-active');
+    }
+    if (percent == 0) {
+      back2Top.classList.remove('back-top-active');
+    }
+    if (back2TopText) {
+      back2TopText.textContent = Math.floor(percent);
+    }
+  });
+
+  
+  let hasCacu = false;
+  window.onresize = function() {
+    if (window.width > 991) {
+      calcuHeight();
+    } else {
+      hasCacu = false;
+    }
+  }
+
+  function calcuHeight() {
+    // 动态调整站点概览高度
+    if (!hasCacu && back2Top.classList.contains('pisces') || back2Top.classList.contains('gemini')) {
+      let sideBar = document.querySelector('.sidebar');
+      let navUl = document.querySelector('#site_nav');
+      sideBar.style = 'margin-top:' + (navUl.offsetHeight + navUl.offsetTop + 15) + 'px;';
+      hasCacu = true;
+    }
+  }
+  calcuHeight();
+  
+  let open = false, MOTION_TIME = 300, RIGHT_MOVE_DIS = '320px';
+
+  if (drawerBox) {
+    let rightMotions = document.querySelectorAll('.right-motion');
+    let right = drawerBox.classList.contains('right');
+
+    let transitionDir = right ? "transition.slideRightIn" : "transition.slideLeftIn";
+
+    let openProp, closeProp;
+    if (right) {
+      openProp = {
+        paddingRight: RIGHT_MOVE_DIS 
+      };
+      closeProp = {
+        paddingRight: '0px'
+      };
+    } else {
+      openProp = {
+        paddingLeft: RIGHT_MOVE_DIS 
+      };
+      closeProp = {
+        paddingLeft: '0px'
+      };
+    }
+
+    drawerBox.onclick = function() {
+      open = !open;
+      window.Velocity(rightSideBar, 'stop');
+      window.Velocity(viewport, 'stop');
+      window.Velocity(rightMotions, 'stop');
+      if (open) {
+        window.Velocity(rightSideBar, {
+          width: RIGHT_MOVE_DIS
+        }, {
+          duration: MOTION_TIME,
+          begin: function() {
+            window.Velocity(rightMotions, transitionDir,{ });
+          }
+        })
+        window.Velocity(viewport, openProp,{
+          duration: MOTION_TIME
+        });
+      } else {
+        window.Velocity(rightSideBar, {
+          width: '0px'
+        }, {
+          duration: MOTION_TIME,
+          begin: function() {
+            window.Velocity(rightMotions, {
+              opacity: 0
+            });
+          }
+        })
+        window.Velocity(viewport, closeProp ,{
+          duration: MOTION_TIME
+        });
+      }
+      for (let i = 0; i < drawerBox.children.length; i++) {
+        drawerBox.children[i].classList.toggle('muse-line');
+      }
+      drawerBox.classList.toggle(sideBarOpen);
+    }
+  }
+
+  // 链接跳转
+  let newWindow = 'false'
+  if (newWindow === 'true') {
+    let links = document.querySelectorAll('.post-body a')
+    links.forEach(item => {
+      if (!item.classList.contains('btn')) {
+        item.setAttribute("target","_blank");
+      }
+    })
+  }
+  // 代码高亮
+  hljs.initHighlightingOnLoad();
+
+</script>
+  </div>
+</body>
+<input hidden id="copy" />
+<script>
+  //拿来主义(真香)^_^，Clipboard 实现摘自掘金 https://juejin.im/post/5aefeb6e6fb9a07aa43c20af
+  window.Clipboard = (function (window, document, navigator) {
+    var textArea,
+      copy;
+
+    // 判断是不是ios端
+    function isOS() {
+      return navigator.userAgent.match(/ipad|iphone/i);
+    }
+    //创建文本元素
+    function createTextArea(text) {
+      textArea = document.createElement('textArea');
+      textArea.value = text;
+      textArea.style.width = 0;
+      textArea.style.height = 0;
+      textArea.clientHeight = 0;
+      textArea.clientWidth = 0;
+      document.body.appendChild(textArea);
+    }
+    //选择内容
+    function selectText() {
+      var range,
+        selection;
+
+      if (isOS()) {
+        range = document.createRange();
+        range.selectNodeContents(textArea);
+        selection = window.getSelection();
+        selection.removeAllRanges();
+        selection.addRange(range);
+        textArea.setSelectionRange(0, 999999);
+      } else {
+        textArea.select();
+      }
+    }
+
+    //复制到剪贴板
+    function copyToClipboard() {
+      try {
+        document.execCommand("Copy")
+      } catch (err) {
+        alert("复制错误！请手动复制！")
+      }
+      document.body.removeChild(textArea);
+    }
+
+    copy = function (text) {
+      createTextArea(text);
+      selectText();
+      copyToClipboard();
+    };
+
+    return {
+      copy: copy
+    };
+  })(window, document, navigator);
+
+  function copyCode(e) {
+    if (e.srcElement.tagName === 'SPAN' && e.srcElement.classList.contains('copy-code')) {
+      let code = e.currentTarget.querySelector('code');
+      var text = code.innerText;
+      if (e.srcElement.textContent === '复制成功') {
+        console.log('复制操作频率过高');
+        return;
+      }
+      e.srcElement.textContent = '复制成功';
+      (function (elem) {
+        setTimeout(() => {
+          if (elem.textContent === '复制成功') {
+            elem.textContent = '复制代码'
+          }
+        }, 1000);
+      })(e.srcElement)
+      Clipboard.copy(text);
+    }
+  }
+
+  let pres = document.querySelectorAll('pre');
+  pres.forEach(pre => {
+    let code = pre.querySelector('code');
+    let copyElem = document.createElement('span');
+    copyElem.classList.add('copy-code');
+    copyElem.textContent = '复制代码';
+    pre.appendChild(copyElem);
+    pre.onclick = copyCode
+  })
+</script>
+<script src="/media/js/motion.js"></script>
+
+<script src="https://cdn.jsdelivr.net/gh/cferdinandi/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>
+<script>
+  var scroll = new SmoothScroll('a[href*="#"]', {
+    speed: 500
+  });
+</script>
+
+<!-- <div class="search-mask" id="search_mask">
+  <div class="search-box">
+    <div class="search-title">
+      <i class="fa fa-search"></i>
+      <div class="input-box">
+        <input type="text" placeholder="搜索">
+      </div>
+      <i class="fa fa-times-circle"></i>
+    </div>
+    <div class="result">
+      
+      <div class="item">
+        <a class="result-title" href="https://vincentsui.github.io/chong-qi-wang-zhan-dao-hang/"" data-c="
+          &lt;h1 id=&#34;搜索引擎&#34;&gt;搜索引擎&lt;/h1&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;a href=&#34;https://mijisou.com/&#34;&gt; 秘技搜索 &lt;/a&gt;&lt;/th&gt;
+&lt;th&gt;&lt;a href=&#34;https://yandex.com/&#34;&gt;yandex&lt;/a&gt;&lt;/th&gt;
+&lt;th&gt;&lt;a href=&#34;http://www.bing.com/&#34;&gt;Bing&lt;/a&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://goobe.io/&#34;&gt; 程序员搜索 &lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://magi.com/&#34;&gt; magi &lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://mengso.com/&#34;&gt; 萌搜 &lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://vincentsui.gitee.io/vincentsui.github.io/&#34;&gt;重启存档&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;h1 id=&#34;导航网站&#34;&gt;导航网站&lt;/h1&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;a href=&#34;http://ailongmiao.com/&#34;&gt; 龙猫 &lt;/a&gt;&lt;/th&gt;
+&lt;th&gt;&lt;a href=&#34;https://go.sunbox.cc/&#34;&gt; 阳光导航 &lt;/a&gt;&lt;/th&gt;
+&lt;th&gt;&lt;a href=&#34;http://ilxdh.com/&#34;&gt; 龙轩导航 &lt;/a&gt;&lt;/th&gt;
+&lt;th&gt;&lt;a href=&#34;https://dh.woshipm.com/&#34;&gt; 阿猫阿狗 &lt;/a&gt;&lt;/th&gt;
+&lt;th&gt;&lt;a href=&#34;https://www.no404.me/&#34;&gt; no404 &lt;/a&gt;&lt;/th&gt;
+&lt;th&gt;&lt;a href=&#34;https://adzhp.cn/&#34;&gt;爱达杂货铺&lt;/a&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;http://lackar.com/aa/&#34;&gt; AA导航 &lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://www.bqrdh.com/&#34;&gt;不求人导航&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://dalao.ru/&#34;&gt;大佬导航&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://www.daohangwan.com/&#34;&gt; 导航湾 &lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;http://www.waysto.work/&#34;&gt; 沃客导航 &lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;http://www.chongbuluo.com/&#34;&gt; 虫部落 &lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://www.bookmarkearth.com/&#34;&gt;书签地球&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://youquhome.com/&#34;&gt; 有趣网址 &lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;http://www.alloyteam.com/nav/&#34;&gt;Web前端导航&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://nav.ujuji.com/&#34;&gt;无道书签&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://www.library.ac.cn/&#34;&gt;mirror list 学术&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;http://www.20009.net/&#34;&gt;格桑花学术&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;http://www.4243.net/&#34;&gt; 大木虫 &lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;http://gongwenguan.com/&#34;&gt;公文馆&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;http://www.zoudupai.com/&#34;&gt;走读派&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;http://shu.ziyuandi.cn/&#34;&gt;电子书&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;http://hao.199it.com/&#34;&gt;大数据导航&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;http://123.meibp.com/&#34;&gt;新媒体导航&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://www.addog.vip/&#34;&gt;营销创意导航&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://www.amz123.com/&#34;&gt;亚马逊卖家网&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://hao.shejidaren.com/&#34;&gt; 设计导航 &lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://hao.uisdc.com/&#34;&gt; 优设导航 &lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;h1 id=&#34;常用&#34;&gt;常用&lt;/h1&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;a href=&#34;https://www.douban.com/&#34;&gt; 豆瓣 &lt;/a&gt;&lt;/th&gt;
+&lt;th&gt;&lt;a href=&#34;https://www.jianshu.com/&#34;&gt; 简书 &lt;/a&gt;&lt;/th&gt;
+&lt;th&gt;&lt;a href=&#34;https://www.zhihu.com/&#34;&gt; 知乎 &lt;/a&gt;&lt;/th&gt;
+&lt;th&gt;&lt;a href=&#34;https://www.wukong.com/&#34;&gt; 悟空问答 &lt;/a&gt;&lt;/th&gt;
+&lt;th&gt;&lt;a href=&#34;https://zh.m.wikihow.com&#34;&gt;Wikihow &lt;/a&gt;&lt;/th&gt;
+&lt;th&gt;&lt;a href=&#34;https://www.ipaperclip.net&#34;&gt; 回形针&lt;/a&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://tophub.today/&#34;&gt; 今日热榜 &lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://www.toutiao.com/&#34;&gt; 今日头条 &lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://wiki.mbalib.com/&#34;&gt; MBA智库 &lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;http://www.weather.com.cn/radar/index.shtml?DB&#34;&gt; 雷达天气 &lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://jobui.com/&#34;&gt; 职友集  &lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://www.v2ex.com&#34;&gt; V2EX &lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://www.linkedin.com/&#34;&gt; 领英 &lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;http://www.officeplus.cn/Template/Home.shtml&#34;&gt; OfficePLUS模板 &lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://github.com/dyweb/awesome-resume-for-chinese&#34;&gt; 简历模板&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://www.oschina.net/&#34;&gt; 开源技术 &lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;http://rank.kkj.cn/?hddog&#34;&gt; 快科技 &lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://www.expreview.com/&#34;&gt; 超能网 &lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://sunbox.cc/&#34;&gt; 阳光盒子 &lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://www.runningcheese.com/&#34;&gt; 奔跑中的奶酪 &lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;http://zxgk.court.gov.cn/&#34;&gt; 执行信息公开 &lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://wenshu.court.gov.cn/&#34;&gt; 裁判文书 &lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;http://gsxt.gdgs.gov.cn/&#34;&gt; 企业信用信息 &lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://github.com/ZGWS88/TI&#34;&gt; 公司黑名单 &lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://www.similarsitesearch.com/cn/&#34;&gt; 相似网站  &lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;h1 id=&#34;新闻&#34;&gt;新闻&lt;/h1&gt;
+&lt;p&gt;|&lt;a href=&#34;http://xinhuanet.com/&#34;&gt; 新华网 &lt;/a&gt;|&lt;a href=&#34;https://www.thepaper.cn/&#34;&gt; 澎湃 &lt;/a&gt;|&lt;a href=&#34;https://www.jiemian.com/&#34;&gt; 界面 &lt;/a&gt;|&lt;a href=&#34;http://www.caixin.com/&#34;&gt; 财新网 &lt;/a&gt;|&lt;/p&gt;
+&lt;hr&gt;
+&lt;h1 id=&#34;影视&#34;&gt;影视&lt;/h1&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;a href=&#34;https://dianliang521.github.io/xindianliangshipin/index.html&#34;&gt; 新点亮视频 &lt;/a&gt;&lt;/th&gt;
+&lt;th&gt;&lt;a href=&#34;http://www.66s.cc&#34;&gt; 6V电影 &lt;/a&gt;&lt;/th&gt;
+&lt;th&gt;&lt;a href=&#34;https://live.48.cn/Index/main/club/1&#34;&gt; snh48直播 &lt;/a&gt;&lt;/th&gt;
+&lt;th&gt;&lt;a href=&#34;http://www.mvcat.com/&#34;&gt; mvcat &lt;/a&gt;&lt;/th&gt;
+&lt;th&gt;&lt;a href=&#34;https://ddrk.me/&#34;&gt;低端影视&lt;/a&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;http://vipjx.info/&#34;&gt;全网vip解析&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;http://czjx8.com/&#34;&gt; 船长解析 &lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://jiexi.bqrdh.com/&#34;&gt;vip视频解析&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://www.ting22.com/&#34;&gt;22有声小说&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://www.rarbgmirror.com/i&#34;&gt;RARBG&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;h1 id=&#34;工具&#34;&gt;工具&lt;/h1&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;a href=&#34;https://www.toolnb.com/&#34;&gt; 在线工具 &lt;/a&gt;&lt;/th&gt;
+&lt;th&gt;&lt;a href=&#34;http://tools.jb51.net/&#34;&gt; 脚本之家 &lt;/a&gt;&lt;/th&gt;
+&lt;th&gt;&lt;a href=&#34;https://distrotest.net/&#34;&gt; 在线Linux &lt;/a&gt;&lt;/th&gt;
+&lt;th&gt;&lt;a href=&#34;https://www.bt.cn/&#34;&gt; 宝塔面板 &lt;/a&gt;&lt;/th&gt;
+&lt;th&gt;&lt;a href=&#34;https://gridea.dev/&#34;&gt; Gridea  &lt;/a&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://github.com/Awesome-Windows/Awesome&#34;&gt; Awesome Windows &lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://www.lanzous.com/b674789&#34;&gt; HEU KMS&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://www.ventoy.net/cn/index.html&#34;&gt; 多系统启动u盘 &lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://flourish.studio/&#34;&gt; 数据可视化 &lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;http://rufus.ie/&#34;&gt; rufus  &lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;http://www.chuyu.me/zh-Hans/index.html&#34;&gt; Dism++ &lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;http://zyplayer.fun/&#34;&gt; ZY Player &lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://www.lanzous.com/b0gw7r0h&#34;&gt; PotPlayer &lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://jsznopi.lanzous.com/b01h6ckzc&#34;&gt;聚云搜&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://github.com/We5ter/Scanners-Box/blob/master/README_CN.md&#34;&gt; 黑客工具箱 &lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://greasyfork.org/zh-CN/scripts&#34;&gt; 脚本 &lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;http://houyi.shenjian.io/?bd&amp;amp;utm=search&amp;amp;b_scene_zt=1&#34;&gt; 采集器 &lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;http://24mail.chacuo.net/&#34;&gt; 临时邮箱 &lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://t.odmail.cn&#34;&gt; 教育临时邮箱  &lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;h1 id=&#34;新媒体&#34;&gt;新媒体&lt;/h1&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;a href=&#34;http://www.wenangou.com/&#34;&gt; 文案狗 &lt;/a&gt;&lt;/th&gt;
+&lt;th&gt;&lt;a href=&#34;https://mp.yidianzixun.com/&#34;&gt; 一点号 &lt;/a&gt;&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;http://index.baidu.com/v2/index.html&#34;&gt; 百度指数 &lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://index.toutiao.com/&#34;&gt; 头条指数 &lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://ziyuan.baidu.com/&#34;&gt; 百度搜索资源 &lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://xiaomark.com/&#34;&gt; 小码短连接 &lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;http://data.xiguaji.com/&#34;&gt; 西瓜数据 &lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://www.chanmama.com/&#34;&gt; 婵妈妈 &lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://www.qimai.cn/&#34;&gt; 七麦数据&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://www.biliob.com/&#34;&gt; BiliOB观测者&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;h1 id=&#34;购物&#34;&gt;购物&lt;/h1&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;a href=&#34;https://www.smzdm.com/&#34;&gt; 什么值得买 &lt;/a&gt;&lt;/th&gt;
+&lt;th&gt;&lt;a href=&#34;https://post.smzdm.com/hot_30/&#34;&gt; 30天热文 什么值得买 &lt;/a&gt;&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://pub.alimama.com/&#34;&gt; 淘宝联盟 &lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://jinbao.pinduoduo.com/&#34;&gt; 多多进宝 &lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://youhui.pinduoduo.com/&#34;&gt; 拼多多优惠 &lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;h1 id=&#34;网络工程师&#34;&gt;网络工程师&lt;/h1&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;a href=&#34;http://bbs.hh010.com/&#34;&gt; 鸿鹄论坛 &lt;/a&gt;&lt;/th&gt;
+&lt;th&gt;&lt;a href=&#34;http://bbs.vlan5.com/&#34;&gt; 攻城狮论坛 &lt;/a&gt;&lt;/th&gt;
+&lt;th&gt;&lt;a href=&#34;http://www.ccietea.com/&#34;&gt; 红茶三杯 &lt;/a&gt;&lt;/th&gt;
+&lt;th&gt;&lt;a href=&#34;https://ccna60d.xfoss.com/&#34;&gt; 60天通过CCNA考试 &lt;/a&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://mirrors.tuna.tsinghua.edu.cn/&#34;&gt;  清华大学开源站 &lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://developer.aliyun.com/mirror&#34;&gt;  阿里云开源站 &lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;http://mirrors.163.com/&#34;&gt;  网易开源站 &lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://hub.daocloud.io/&#34;&gt; docker 镜像站  &lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://www.ioiox.com/&#34;&gt; 思有云 &lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://shumeipai.nxez.com/&#34;&gt; 树莓派实验室 &lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;h1 id=&#34;国外&#34;&gt;国外&lt;/h1&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;a href=&#34;https://www.google.com/&#34;&gt; google &lt;/a&gt;&lt;/th&gt;
+&lt;th&gt;&lt;a href=&#34;https://92.247.181.40/&#34;&gt; inoreader &lt;/a&gt;&lt;/th&gt;
+&lt;th&gt;&lt;a href=&#34;https://twitter.com/&#34;&gt; twitter &lt;/a&gt;&lt;/th&gt;
+&lt;th&gt;&lt;a href=&#34;https://youtube.com/&#34;&gt; youtube &lt;/a&gt;&lt;/th&gt;
+&lt;th&gt;&lt;a href=&#34;https://www.tumblr.com/&#34;&gt; tumble &lt;/a&gt;&lt;/th&gt;
+&lt;th&gt;&lt;a href=&#34;http://www.reddit.com&#34;&gt; readdit &lt;/a&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;h1 id=&#34;学习&#34;&gt;学习&lt;/h1&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;a href=&#34;https://open.163.com/&#34;&gt; 网易公开课 &lt;/a&gt;&lt;/th&gt;
+&lt;th&gt;&lt;a href=&#34;https://study.163.com/&#34;&gt;网易云课堂&lt;/a&gt;&lt;/th&gt;
+&lt;th&gt;&lt;a href=&#34;https://ke.qq.com/&#34;&gt; 腾讯课堂 &lt;/a&gt;&lt;/th&gt;
+&lt;th&gt;&lt;a href=&#34;https://ilearningx.huawei.com/portal/&#34;&gt; huawei &lt;/a&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://next.xuetangx.com/&#34;&gt; 学堂在线 &lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://www.icourse163.org/&#34;&gt;中国大学MOOC&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://www.imooc.com/&#34;&gt; 慕课网 &lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://yixi.tv/&#34;&gt; 一席 &lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://www.ichunqiu.com/&#34;&gt; i春秋  &lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://www.jikexueyuan.com/&#34;&gt; 极客学院  &lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://live.freebuf.com/&#34;&gt; freebuf公开课  &lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://www.shiyanlou.com/&#34;&gt; 实验楼 &lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://space.bilibili.com/8188433/&#34;&gt; TED君  &lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://space.bilibili.com/386871393/&#34;&gt; SCOTTHYOUNG  &lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://www.bilibili.com/video/BV12b4111733&#34;&gt; 谢孟媛英语  &lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://www.bilibili.com/video/BV1Nb411w7Gm&#34;&gt; 柯林斯词频  &lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://space.bilibili.com/453972/&#34;&gt; 阿狸才不是受  &lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://space.bilibili.com/133901828/&#34;&gt; 二斤啦啦啦啦  &lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://space.bilibili.com/338748561/&#34;&gt; 喵喵折App  &lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://space.bilibili.com/105690033/&#34;&gt; 闫辉6IE  &lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://space.bilibili.com/392202707/&#34;&gt; 马哥高薪IT实战 &lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://space.bilibili.com/412127397/&#34;&gt; 乾颐堂  &lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://www.bilibili.com/video/BV1Bx411g7gD&#34;&gt; PowerShell 3.0  &lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;h1 id=&#34;安全网站&#34;&gt;安全网站&lt;/h1&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;a href=&#34;https://navisec.it/&#34;&gt; navisec &lt;/a&gt;&lt;/th&gt;
+&lt;th&gt;&lt;a href=&#34;http://www.freebuf.com&#34;&gt; frebuf &lt;/a&gt;&lt;/th&gt;
+&lt;th&gt;&lt;a href=&#34;https://www.ichunqiu.com&#34;&gt; i春秋 &lt;/a&gt;&lt;/th&gt;
+&lt;th&gt;&lt;a href=&#34;https://www.secpulse.com/&#34;&gt; 安全脉搏 &lt;/a&gt;&lt;/th&gt;
+&lt;th&gt;&lt;a href=&#34;https://www.sec-wiki.com/&#34;&gt; 安全wiki &lt;/a&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://xz.aliyun.com/&#34;&gt; 先知论坛 &lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;http://bbs.pediy.com/&#34;&gt; 看雪论坛 &lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://juejin.im/&#34;&gt; 掘金 &lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://www.4hou.com&#34;&gt; 嘶吼 &lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://gitee.com/&#34;&gt; 码云 &lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://about.gitlab.com/&#34;&gt; gitlab &lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://coding.net/&#34;&gt; coding托管 &lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://www.cnblogs.com/&#34;&gt; 博客园 &lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://github.com/riusksk/secbook&#34;&gt;信息安全书单&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;h1 id=&#34;小说&#34;&gt;小说&lt;/h1&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;a href=&#34;https://www.jiumodiary.com/&#34;&gt; 鸠摩搜索  &lt;/a&gt;&lt;/th&gt;
+&lt;th&gt;&lt;a href=&#34;https://www.shiyisoushu.com/&#34;&gt; 时宜搜书 &lt;/a&gt;&lt;/th&gt;
+&lt;th&gt;&lt;a href=&#34;https://ebook.huzerui.com/&#34;&gt; 熊猫搜书 &lt;/a&gt;&lt;/th&gt;
+&lt;th&gt;&lt;a href=&#34;https://www.yuedu.pro/&#34;&gt; 阅读链 &lt;/a&gt;&lt;/th&gt;
+&lt;th&gt;&lt;a href=&#34;https://book.zhishikoo.com/&#34;&gt; 书籍知识库 &lt;/a&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;http://www.zxcs.me/&#34;&gt; 知轩藏书  &lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://www.biquge5200.cc/&#34;&gt; 笔趣阁 &lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;http://cn.epubee.com&#34;&gt;epubee&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;h1 id=&#34;软件网站&#34;&gt;软件网站&lt;/h1&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;a href=&#34;https://www.52pojie.cn/forum-16-1.html&#34;&gt; 吾爱破解  &lt;/a&gt;&lt;/th&gt;
+&lt;th&gt;&lt;a href=&#34;http://www.appinn.com/&#34;&gt; 小众软件 &lt;/a&gt;&lt;/th&gt;
+&lt;th&gt;&lt;a href=&#34;https://www.ghpym.com/&#34;&gt;果核剥壳&lt;/a&gt;&lt;/th&gt;
+&lt;th&gt;&lt;a href=&#34;http://www.ypojie.com/&#34;&gt;易破解&lt;/a&gt;&lt;/th&gt;
+&lt;th&gt;&lt;a href=&#34;https://disk.misiai.com/&#34;&gt;懒盘聚合&lt;/a&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;http://yx.bsh.me/&#34;&gt;异星软件&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://www.aiweibk.com/&#34;&gt;艾薇下载站&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://www.portablesoft.org/&#34;&gt;绿色资源网&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;http://pan.lanzou.com/u/%E5%BD%AA%E7%85%8Cqq1846055318&#34;&gt; bhvip软件团队  &lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;h1 id=&#34;下载软件&#34;&gt;下载软件&lt;/h1&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;a href=&#34;https://carrotchou.lanzous.com/b0gwopzc&#34;&gt; IDM &lt;/a&gt;&lt;/th&gt;
+&lt;th&gt;&lt;a href=&#34;https://subhra74.github.io/xdm/&#34;&gt; XDM &lt;/a&gt;&lt;/th&gt;
+&lt;th&gt;&lt;a href=&#34;http://bbs.xiaokanba.com/download.html&#34;&gt; 闪电下载 &lt;/a&gt;&lt;/th&gt;
+&lt;th&gt;&lt;a href=&#34;https://motrix.app/zh-CN&#34;&gt; Motrix &lt;/a&gt;&lt;/th&gt;
+&lt;th&gt;&lt;a href=&#34;http://aria2c.com/archiver/aria2.zip&#34;&gt; aria2懒人包 &lt;/a&gt;&lt;/th&gt;
+&lt;th&gt;&lt;a href=&#34;https://raw.githubusercontent.com/ngosang/trackerslist/master/trackers_best.txt&#34;&gt;trackers&lt;/a&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;h1 id=&#34;科学上网&#34;&gt;科学上网&lt;/h1&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/Dreamacro/clash&#34;&gt; clash &lt;/a&gt;&lt;br&gt;
+&lt;a href=&#34;https://github.com/2dust/v2rayN/releases&#34;&gt; v2ray &lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h1 id=&#34;图库和图床&#34;&gt;图库和图床&lt;/h1&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;a href=&#34;http://huaban.com/&#34;&gt; 花瓣网 &lt;/a&gt;&lt;/th&gt;
+&lt;th&gt;&lt;a href=&#34;https://m.pixivic.com/dailyRank?VNK=8b40953b&#34;&gt;pixiv-china&lt;/a&gt;&lt;/th&gt;
+&lt;th&gt;&lt;a href=&#34;https://imgkr.com&#34;&gt;图壳&lt;/a&gt;&lt;/th&gt;
+&lt;th&gt;&lt;a href=&#34;https://niupic.com/&#34;&gt; 牛图网 &lt;/a&gt;&lt;/th&gt;
+&lt;th&gt;&lt;a href=&#34;https://sm.ms/&#34;&gt; 图床sm &lt;/a&gt;&lt;/th&gt;
+&lt;th&gt;&lt;a href=&#34;https://www.superbed.cn/&#34;&gt; 聚合图床 &lt;/a&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;h1 id=&#34;无版权图片素材&#34;&gt;无版权图片素材&lt;/h1&gt;
+&lt;p&gt;使用图片时，一定要区分该图片授给网站的类型，认真阅读网站协议条款，避免日后不必要的纠纷&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;a href=&#34;https://pixabay.com&#34;&gt; Pixabay &lt;/a&gt;&lt;/th&gt;
+&lt;th&gt;&lt;a href=&#34;http://www.polayoutu.com&#34;&gt; 泼辣有图 &lt;/a&gt;&lt;/th&gt;
+&lt;th&gt;&lt;a href=&#34;https://unsplash.com&#34;&gt; Unsplash &lt;/a&gt;&lt;/th&gt;
+&lt;th&gt;&lt;a href=&#34;https://pngtree.com&#34;&gt; pngtree &lt;/a&gt;&lt;/th&gt;
+&lt;th&gt;&lt;a href=&#34;https://foter.com&#34;&gt; Foter &lt;/a&gt;&lt;/th&gt;
+&lt;th&gt;&lt;a href=&#34;https://www.foodiesfeed.com&#34;&gt; Foodiesfeed &lt;/a&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;h1 id=&#34;游戏&#34;&gt;游戏&lt;/h1&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;a href=&#34;https://3dmgame.com&#34;&gt; 3dm  &lt;/a&gt;&lt;/th&gt;
+&lt;th&gt;&lt;a href=&#34;https://gamersky.com&#34;&gt; 游民星空 &lt;/a&gt;&lt;/th&gt;
+&lt;th&gt;&lt;a href=&#34;https://www.ali213.net&#34;&gt;游侠网&lt;/a&gt;&lt;/th&gt;
+&lt;th&gt;&lt;a href=&#34;https://github.com/EmuELEC/EmuELEC/releases&#34;&gt; 模拟器EmuELEC &lt;/a&gt;&lt;/th&gt;
+&lt;th&gt;&lt;a href=&#34;http://pewpewpew.work&#34;&gt; 枪炮世界  &lt;/a&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://www.taptap.com/&#34;&gt; TapTap &lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://www.25game.com/&#34;&gt; 爱吾游戏 &lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://www.vqs.com/&#34;&gt; 骑士下载 &lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;http://game333.net&#34;&gt; 游乐园 &lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;h1 id=&#34;时尚&#34;&gt;时尚&lt;/h1&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;a href=&#34;http://www.yoka.com/dna/m/&#34;&gt; yoka &lt;/a&gt;&lt;/th&gt;
+&lt;th&gt;&lt;a href=&#34;http://enrz.com/&#34;&gt; 男人装 &lt;/a&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;h1 id=&#34;rss&#34;&gt;RSS&lt;/h1&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;a href=&#34;https://theoldreader.com/&#34;&gt; tholdreader &lt;/a&gt;&lt;/th&gt;
+&lt;th&gt;&lt;a href=&#34;https://www.ioiox.com/archives/94.html&#34;&gt; 免费rsshub和ttrss &lt;/a&gt;&lt;/th&gt;
+&lt;th&gt;&lt;a href=&#34;https://huginn.cn/&#34;&gt;huginn&lt;/a&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;h1 id=&#34;其他&#34;&gt;其他&lt;/h1&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;a href=&#34;https://dzhi.droppages.com/&#34;&gt; 蓝色导航 &lt;/a&gt;&lt;/th&gt;
+&lt;th&gt;&lt;a href=&#34;https://xn--kcrx7j5tego1bv9fbre.com&#34;&gt; 福利网址导航 &lt;/a&gt;&lt;/th&gt;
+&lt;th&gt;&lt;a href=&#34;https://porndabster.com/&#34;&gt; porndabster  &lt;/a&gt;&lt;/th&gt;
+&lt;th&gt;&lt;a href=&#34;https://theporndude.com/&#34;&gt; theporndude  &lt;/a&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;http://www.timliao.com/bbs/forumdisplay.php?fid=18&#34;&gt; 提姆正妹  &lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://www.mzitu.com/&#34;&gt;妹子图&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://app.swag.live/&#34;&gt; swag直播  &lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://coub.com/&#34;&gt; coub &lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;http://www.yaojiwu.com/&#34;&gt; 妖姬屋  &lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;http://xinmadou.cn/&#34;&gt;新麻豆&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://www.crazyshit.com/&#34;&gt; crazshit  &lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;http://38.103.161.16/forum/&#34;&gt;第一会所&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://sleazyfork.org/zh-CN/scripts&#34;&gt; porn脚本  &lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://xvideosjx.com/&#34;&gt;xvideos&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://whereisph.com/&#34;&gt;pornhub&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://xnxx5.tk/&#34;&gt;xnxx&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;h1 id=&#34;磁力&#34;&gt;磁力&lt;/h1&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;a href=&#34;https://www.btxqz.com&#34;&gt; 比特星球 &lt;/a&gt;&lt;/th&gt;
+&lt;th&gt;&lt;a href=&#34;https://thepiratebay10.org/&#34;&gt;海盗网&lt;/a&gt;   &lt;a href=&#34;http://thepiratebay.se.net/&#34;&gt;海盗网&lt;/a&gt;&lt;/th&gt;
+&lt;th&gt;&lt;a href=&#34;https://www.yuhuage.club/&#34;&gt;雨花阁磁力&lt;/a&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://www.tokyotosho.info/&#34;&gt;东京图书馆&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://btsow.cam/convert/magnet&#34;&gt;BTSOW&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+">重启网站导航</a>
+      </div>
+      
+    </div>
+  </div>
+</div>
+<script>
+  // var escape = "[{&#34;content&#34;:&#34;&lt;h1 id=\&#34;搜索引擎\&#34;&gt;搜索引擎&lt;/h1&gt;\n&lt;table&gt;\n&lt;thead&gt;\n&lt;tr&gt;\n&lt;th&gt;&lt;a href=\&#34;https://mijisou.com/\&#34;&gt; 秘技搜索 &lt;/a&gt;&lt;/th&gt;\n&lt;th&gt;&lt;a href=\&#34;https://yandex.com/\&#34;&gt;yandex&lt;/a&gt;&lt;/th&gt;\n&lt;th&gt;&lt;a href=\&#34;http://www.bing.com/\&#34;&gt;Bing&lt;/a&gt;&lt;/th&gt;\n&lt;/tr&gt;\n&lt;/thead&gt;\n&lt;tbody&gt;\n&lt;tr&gt;\n&lt;td&gt;&lt;a href=\&#34;https://goobe.io/\&#34;&gt; 程序员搜索 &lt;/a&gt;&lt;/td&gt;\n&lt;td&gt;&lt;a href=\&#34;https://magi.com/\&#34;&gt; magi &lt;/a&gt;&lt;/td&gt;\n&lt;td&gt;&lt;a href=\&#34;https://mengso.com/\&#34;&gt; 萌搜 &lt;/a&gt;&lt;/td&gt;\n&lt;/tr&gt;\n&lt;tr&gt;\n&lt;td&gt;&lt;a href=\&#34;https://vincentsui.gitee.io/vincentsui.github.io/\&#34;&gt;重启存档&lt;/a&gt;&lt;/td&gt;\n&lt;td&gt;&lt;/td&gt;\n&lt;td&gt;&lt;/td&gt;\n&lt;/tr&gt;\n&lt;/tbody&gt;\n&lt;/table&gt;\n&lt;hr&gt;\n&lt;h1 id=\&#34;导航网站\&#34;&gt;导航网站&lt;/h1&gt;\n&lt;table&gt;\n&lt;thead&gt;\n&lt;tr&gt;\n&lt;th&gt;&lt;a href=\&#34;http://ailongmiao.com/\&#34;&gt; 龙猫 &lt;/a&gt;&lt;/th&gt;\n&lt;th&gt;&lt;a href=\&#34;https://go.sunbox.cc/\&#34;&gt; 阳光导航 &lt;/a&gt;&lt;/th&gt;\n&lt;th&gt;&lt;a href=\&#34;http://ilxdh.com/\&#34;&gt; 龙轩导航 &lt;/a&gt;&lt;/th&gt;\n&lt;th&gt;&lt;a href=\&#34;https://dh.woshipm.com/\&#34;&gt; 阿猫阿狗 &lt;/a&gt;&lt;/th&gt;\n&lt;th&gt;&lt;a href=\&#34;https://www.no404.me/\&#34;&gt; no404 &lt;/a&gt;&lt;/th&gt;\n&lt;th&gt;&lt;a href=\&#34;https://adzhp.cn/\&#34;&gt;爱达杂货铺&lt;/a&gt;&lt;/th&gt;\n&lt;/tr&gt;\n&lt;/thead&gt;\n&lt;tbody&gt;\n&lt;tr&gt;\n&lt;td&gt;&lt;a href=\&#34;http://lackar.com/aa/\&#34;&gt; AA导航 &lt;/a&gt;&lt;/td&gt;\n&lt;td&gt;&lt;a href=\&#34;https://www.bqrdh.com/\&#34;&gt;不求人导航&lt;/a&gt;&lt;/td&gt;\n&lt;td&gt;&lt;a href=\&#34;https://dalao.ru/\&#34;&gt;大佬导航&lt;/a&gt;&lt;/td&gt;\n&lt;td&gt;&lt;a href=\&#34;https://www.daohangwan.com/\&#34;&gt; 导航湾 &lt;/a&gt;&lt;/td&gt;\n&lt;td&gt;&lt;a href=\&#34;http://www.waysto.work/\&#34;&gt; 沃客导航 &lt;/a&gt;&lt;/td&gt;\n&lt;td&gt;&lt;a href=\&#34;http://www.chongbuluo.com/\&#34;&gt; 虫部落 &lt;/a&gt;&lt;/td&gt;\n&lt;/tr&gt;\n&lt;tr&gt;\n&lt;td&gt;&lt;a href=\&#34;https://www.bookmarkearth.com/\&#34;&gt;书签地球&lt;/a&gt;&lt;/td&gt;\n&lt;td&gt;&lt;a href=\&#34;https://youquhome.com/\&#34;&gt; 有趣网址 &lt;/a&gt;&lt;/td&gt;\n&lt;td&gt;&lt;/td&gt;\n&lt;td&gt;&lt;/td&gt;\n&lt;td&gt;&lt;a href=\&#34;http://www.alloyteam.com/nav/\&#34;&gt;Web前端导航&lt;/a&gt;&lt;/td&gt;\n&lt;td&gt;&lt;a href=\&#34;https://nav.ujuji.com/\&#34;&gt;无道书签&lt;/a&gt;&lt;/td&gt;\n&lt;/tr&gt;\n&lt;tr&gt;\n&lt;td&gt;&lt;a href=\&#34;https://www.library.ac.cn/\&#34;&gt;mirror list 学术&lt;/a&gt;&lt;/td&gt;\n&lt;td&gt;&lt;a href=\&#34;http://www.20009.net/\&#34;&gt;格桑花学术&lt;/a&gt;&lt;/td&gt;\n&lt;td&gt;&lt;a href=\&#34;http://www.4243.net/\&#34;&gt; 大木虫 &lt;/a&gt;&lt;/td&gt;\n&lt;td&gt;&lt;a href=\&#34;http://gongwenguan.com/\&#34;&gt;公文馆&lt;/a&gt;&lt;/td&gt;\n&lt;td&gt;&lt;a href=\&#34;http://www.zoudupai.com/\&#34;&gt;走读派&lt;/a&gt;&lt;/td&gt;\n&lt;td&gt;&lt;a href=\&#34;http://shu.ziyuandi.cn/\&#34;&gt;电子书&lt;/a&gt;&lt;/td&gt;\n&lt;/tr&gt;\n&lt;tr&gt;\n&lt;td&gt;&lt;a href=\&#34;http://hao.199it.com/\&#34;&gt;大数据导航&lt;/a&gt;&lt;/td&gt;\n&lt;td&gt;&lt;a href=\&#34;http://123.meibp.com/\&#34;&gt;新媒体导航&lt;/a&gt;&lt;/td&gt;\n&lt;td&gt;&lt;a href=\&#34;https://www.addog.vip/\&#34;&gt;营销创意导航&lt;/a&gt;&lt;/td&gt;\n&lt;td&gt;&lt;a href=\&#34;https://www.amz123.com/\&#34;&gt;亚马逊卖家网&lt;/a&gt;&lt;/td&gt;\n&lt;td&gt;&lt;a href=\&#34;https://hao.shejidaren.com/\&#34;&gt; 设计导航 &lt;/a&gt;&lt;/td&gt;\n&lt;td&gt;&lt;a href=\&#34;https://hao.uisdc.com/\&#34;&gt; 优设导航 &lt;/a&gt;&lt;/td&gt;\n&lt;/tr&gt;\n&lt;/tbody&gt;\n&lt;/table&gt;\n&lt;hr&gt;\n&lt;h1 id=\&#34;常用\&#34;&gt;常用&lt;/h1&gt;\n&lt;table&gt;\n&lt;thead&gt;\n&lt;tr&gt;\n&lt;th&gt;&lt;a href=\&#34;https://www.douban.com/\&#34;&gt; 豆瓣 &lt;/a&gt;&lt;/th&gt;\n&lt;th&gt;&lt;a href=\&#34;https://www.jianshu.com/\&#34;&gt; 简书 &lt;/a&gt;&lt;/th&gt;\n&lt;th&gt;&lt;a href=\&#34;https://www.zhihu.com/\&#34;&gt; 知乎 &lt;/a&gt;&lt;/th&gt;\n&lt;th&gt;&lt;a href=\&#34;https://www.wukong.com/\&#34;&gt; 悟空问答 &lt;/a&gt;&lt;/th&gt;\n&lt;th&gt;&lt;a href=\&#34;https://zh.m.wikihow.com\&#34;&gt;Wikihow &lt;/a&gt;&lt;/th&gt;\n&lt;th&gt;&lt;a href=\&#34;https://www.ipaperclip.net\&#34;&gt; 回形针&lt;/a&gt;&lt;/th&gt;\n&lt;/tr&gt;\n&lt;/thead&gt;\n&lt;tbody&gt;\n&lt;tr&gt;\n&lt;td&gt;&lt;a href=\&#34;https://tophub.today/\&#34;&gt; 今日热榜 &lt;/a&gt;&lt;/td&gt;\n&lt;td&gt;&lt;a href=\&#34;https://www.toutiao.com/\&#34;&gt; 今日头条 &lt;/a&gt;&lt;/td&gt;\n&lt;td&gt;&lt;a href=\&#34;https://wiki.mbalib.com/\&#34;&gt; MBA智库 &lt;/a&gt;&lt;/td&gt;\n&lt;td&gt;&lt;/td&gt;\n&lt;td&gt;&lt;/td&gt;\n&lt;td&gt;&lt;/td&gt;\n&lt;/tr&gt;\n&lt;tr&gt;\n&lt;td&gt;&lt;a href=\&#34;http://www.weather.com.cn/radar/index.shtml?DB\&#34;&gt; 雷达天气 &lt;/a&gt;&lt;/td&gt;\n&lt;td&gt;&lt;a href=\&#34;https://jobui.com/\&#34;&gt; 职友集  &lt;/a&gt;&lt;/td&gt;\n&lt;td&gt;&lt;a href=\&#34;https://www.v2ex.com\&#34;&gt; V2EX &lt;/a&gt;&lt;/td&gt;\n&lt;td&gt;&lt;a href=\&#34;https://www.linkedin.com/\&#34;&gt; 领英 &lt;/a&gt;&lt;/td&gt;\n&lt;td&gt;&lt;a href=\&#34;http://www.officeplus.cn/Template/Home.shtml\&#34;&gt; OfficePLUS模板 &lt;/a&gt;&lt;/td&gt;\n&lt;td&gt;&lt;a href=\&#34;https://github.com/dyweb/awesome-resume-for-chinese\&#34;&gt; 简历模板&lt;/a&gt;&lt;/td&gt;\n&lt;/tr&gt;\n&lt;tr&gt;\n&lt;td&gt;&lt;a href=\&#34;https://www.oschina.net/\&#34;&gt; 开源技术 &lt;/a&gt;&lt;/td&gt;\n&lt;td&gt;&lt;a href=\&#34;http://rank.kkj.cn/?hddog\&#34;&gt; 快科技 &lt;/a&gt;&lt;/td&gt;\n&lt;td&gt;&lt;a href=\&#34;https://www.expreview.com/\&#34;&gt; 超能网 &lt;/a&gt;&lt;/td&gt;\n&lt;td&gt;&lt;a href=\&#34;https://sunbox.cc/\&#34;&gt; 阳光盒子 &lt;/a&gt;&lt;/td&gt;\n&lt;td&gt;&lt;a href=\&#34;https://www.runningcheese.com/\&#34;&gt; 奔跑中的奶酪 &lt;/a&gt;&lt;/td&gt;\n&lt;td&gt;&lt;/td&gt;\n&lt;/tr&gt;\n&lt;tr&gt;\n&lt;td&gt;&lt;a href=\&#34;http://zxgk.court.gov.cn/\&#34;&gt; 执行信息公开 &lt;/a&gt;&lt;/td&gt;\n&lt;td&gt;&lt;a href=\&#34;https://wenshu.court.gov.cn/\&#34;&gt; 裁判文书 &lt;/a&gt;&lt;/td&gt;\n&lt;td&gt;&lt;a href=\&#34;http://gsxt.gdgs.gov.cn/\&#34;&gt; 企业信用信息 &lt;/a&gt;&lt;/td&gt;\n&lt;td&gt;&lt;a href=\&#34;https://github.com/ZGWS88/TI\&#34;&gt; 公司黑名单 &lt;/a&gt;&lt;/td&gt;\n&lt;td&gt;&lt;a href=\&#34;https://www.similarsitesearch.com/cn/\&#34;&gt; 相似网站  &lt;/a&gt;&lt;/td&gt;\n&lt;td&gt;&lt;/td&gt;\n&lt;/tr&gt;\n&lt;/tbody&gt;\n&lt;/table&gt;\n&lt;hr&gt;\n&lt;h1 id=\&#34;新闻\&#34;&gt;新闻&lt;/h1&gt;\n&lt;p&gt;|&lt;a href=\&#34;http://xinhuanet.com/\&#34;&gt; 新华网 &lt;/a&gt;|&lt;a href=\&#34;https://www.thepaper.cn/\&#34;&gt; 澎湃 &lt;/a&gt;|&lt;a href=\&#34;https://www.jiemian.com/\&#34;&gt; 界面 &lt;/a&gt;|&lt;a href=\&#34;http://www.caixin.com/\&#34;&gt; 财新网 &lt;/a&gt;|&lt;/p&gt;\n&lt;hr&gt;\n&lt;h1 id=\&#34;影视\&#34;&gt;影视&lt;/h1&gt;\n&lt;table&gt;\n&lt;thead&gt;\n&lt;tr&gt;\n&lt;th&gt;&lt;a href=\&#34;https://dianliang521.github.io/xindianliangshipin/index.html\&#34;&gt; 新点亮视频 &lt;/a&gt;&lt;/th&gt;\n&lt;th&gt;&lt;a href=\&#34;http://www.66s.cc\&#34;&gt; 6V电影 &lt;/a&gt;&lt;/th&gt;\n&lt;th&gt;&lt;a href=\&#34;https://live.48.cn/Index/main/club/1\&#34;&gt; snh48直播 &lt;/a&gt;&lt;/th&gt;\n&lt;th&gt;&lt;a href=\&#34;http://www.mvcat.com/\&#34;&gt; mvcat &lt;/a&gt;&lt;/th&gt;\n&lt;th&gt;&lt;a href=\&#34;https://ddrk.me/\&#34;&gt;低端影视&lt;/a&gt;&lt;/th&gt;\n&lt;/tr&gt;\n&lt;/thead&gt;\n&lt;tbody&gt;\n&lt;tr&gt;\n&lt;td&gt;&lt;a href=\&#34;http://vipjx.info/\&#34;&gt;全网vip解析&lt;/a&gt;&lt;/td&gt;\n&lt;td&gt;&lt;a href=\&#34;http://czjx8.com/\&#34;&gt; 船长解析 &lt;/a&gt;&lt;/td&gt;\n&lt;td&gt;&lt;a href=\&#34;https://jiexi.bqrdh.com/\&#34;&gt;vip视频解析&lt;/a&gt;&lt;/td&gt;\n&lt;td&gt;&lt;a href=\&#34;https://www.ting22.com/\&#34;&gt;22有声小说&lt;/a&gt;&lt;/td&gt;\n&lt;td&gt;&lt;a href=\&#34;https://www.rarbgmirror.com/i\&#34;&gt;RARBG&lt;/a&gt;&lt;/td&gt;\n&lt;/tr&gt;\n&lt;/tbody&gt;\n&lt;/table&gt;\n&lt;hr&gt;\n&lt;h1 id=\&#34;工具\&#34;&gt;工具&lt;/h1&gt;\n&lt;table&gt;\n&lt;thead&gt;\n&lt;tr&gt;\n&lt;th&gt;&lt;a href=\&#34;https://www.toolnb.com/\&#34;&gt; 在线工具 &lt;/a&gt;&lt;/th&gt;\n&lt;th&gt;&lt;a href=\&#34;http://tools.jb51.net/\&#34;&gt; 脚本之家 &lt;/a&gt;&lt;/th&gt;\n&lt;th&gt;&lt;a href=\&#34;https://distrotest.net/\&#34;&gt; 在线Linux &lt;/a&gt;&lt;/th&gt;\n&lt;th&gt;&lt;a href=\&#34;https://www.bt.cn/\&#34;&gt; 宝塔面板 &lt;/a&gt;&lt;/th&gt;\n&lt;th&gt;&lt;a href=\&#34;https://gridea.dev/\&#34;&gt; Gridea  &lt;/a&gt;&lt;/th&gt;\n&lt;/tr&gt;\n&lt;/thead&gt;\n&lt;tbody&gt;\n&lt;tr&gt;\n&lt;td&gt;&lt;a href=\&#34;https://github.com/Awesome-Windows/Awesome\&#34;&gt; Awesome Windows &lt;/a&gt;&lt;/td&gt;\n&lt;td&gt;&lt;a href=\&#34;https://www.lanzous.com/b674789\&#34;&gt; HEU KMS&lt;/a&gt;&lt;/td&gt;\n&lt;td&gt;&lt;a href=\&#34;https://www.ventoy.net/cn/index.html\&#34;&gt; 多系统启动u盘 &lt;/a&gt;&lt;/td&gt;\n&lt;td&gt;&lt;a href=\&#34;https://flourish.studio/\&#34;&gt; 数据可视化 &lt;/a&gt;&lt;/td&gt;\n&lt;td&gt;&lt;a href=\&#34;http://rufus.ie/\&#34;&gt; rufus  &lt;/a&gt;&lt;/td&gt;\n&lt;/tr&gt;\n&lt;tr&gt;\n&lt;td&gt;&lt;a href=\&#34;http://www.chuyu.me/zh-Hans/index.html\&#34;&gt; Dism++ &lt;/a&gt;&lt;/td&gt;\n&lt;td&gt;&lt;a href=\&#34;http://zyplayer.fun/\&#34;&gt; ZY Player &lt;/a&gt;&lt;/td&gt;\n&lt;td&gt;&lt;a href=\&#34;https://www.lanzous.com/b0gw7r0h\&#34;&gt; PotPlayer &lt;/a&gt;&lt;/td&gt;\n&lt;td&gt;&lt;a href=\&#34;https://jsznopi.lanzous.com/b01h6ckzc\&#34;&gt;聚云搜&lt;/a&gt;&lt;/td&gt;\n&lt;td&gt;&lt;/td&gt;\n&lt;/tr&gt;\n&lt;tr&gt;\n&lt;td&gt;&lt;a href=\&#34;https://github.com/We5ter/Scanners-Box/blob/master/README_CN.md\&#34;&gt; 黑客工具箱 &lt;/a&gt;&lt;/td&gt;\n&lt;td&gt;&lt;a href=\&#34;https://greasyfork.org/zh-CN/scripts\&#34;&gt; 脚本 &lt;/a&gt;&lt;/td&gt;\n&lt;td&gt;&lt;a href=\&#34;http://houyi.shenjian.io/?bd&amp;amp;utm=search&amp;amp;b_scene_zt=1\&#34;&gt; 采集器 &lt;/a&gt;&lt;/td&gt;\n&lt;td&gt;&lt;a href=\&#34;http://24mail.chacuo.net/\&#34;&gt; 临时邮箱 &lt;/a&gt;&lt;/td&gt;\n&lt;td&gt;&lt;a href=\&#34;https://t.odmail.cn\&#34;&gt; 教育临时邮箱  &lt;/a&gt;&lt;/td&gt;\n&lt;/tr&gt;\n&lt;/tbody&gt;\n&lt;/table&gt;\n&lt;hr&gt;\n&lt;h1 id=\&#34;新媒体\&#34;&gt;新媒体&lt;/h1&gt;\n&lt;table&gt;\n&lt;thead&gt;\n&lt;tr&gt;\n&lt;th&gt;&lt;a href=\&#34;http://www.wenangou.com/\&#34;&gt; 文案狗 &lt;/a&gt;&lt;/th&gt;\n&lt;th&gt;&lt;a href=\&#34;https://mp.yidianzixun.com/\&#34;&gt; 一点号 &lt;/a&gt;&lt;/th&gt;\n&lt;th&gt;&lt;/th&gt;\n&lt;th&gt;&lt;/th&gt;\n&lt;/tr&gt;\n&lt;/thead&gt;\n&lt;tbody&gt;\n&lt;tr&gt;\n&lt;td&gt;&lt;a href=\&#34;http://index.baidu.com/v2/index.html\&#34;&gt; 百度指数 &lt;/a&gt;&lt;/td&gt;\n&lt;td&gt;&lt;a href=\&#34;https://index.toutiao.com/\&#34;&gt; 头条指数 &lt;/a&gt;&lt;/td&gt;\n&lt;td&gt;&lt;a href=\&#34;https://ziyuan.baidu.com/\&#34;&gt; 百度搜索资源 &lt;/a&gt;&lt;/td&gt;\n&lt;td&gt;&lt;a href=\&#34;https://xiaomark.com/\&#34;&gt; 小码短连接 &lt;/a&gt;&lt;/td&gt;\n&lt;/tr&gt;\n&lt;tr&gt;\n&lt;td&gt;&lt;a href=\&#34;http://data.xiguaji.com/\&#34;&gt; 西瓜数据 &lt;/a&gt;&lt;/td&gt;\n&lt;td&gt;&lt;a href=\&#34;https://www.chanmama.com/\&#34;&gt; 婵妈妈 &lt;/a&gt;&lt;/td&gt;\n&lt;td&gt;&lt;a href=\&#34;https://www.qimai.cn/\&#34;&gt; 七麦数据&lt;/a&gt;&lt;/td&gt;\n&lt;td&gt;&lt;a href=\&#34;https://www.biliob.com/\&#34;&gt; BiliOB观测者&lt;/a&gt;&lt;/td&gt;\n&lt;/tr&gt;\n&lt;/tbody&gt;\n&lt;/table&gt;\n&lt;hr&gt;\n&lt;h1 id=\&#34;购物\&#34;&gt;购物&lt;/h1&gt;\n&lt;table&gt;\n&lt;thead&gt;\n&lt;tr&gt;\n&lt;th&gt;&lt;a href=\&#34;https://www.smzdm.com/\&#34;&gt; 什么值得买 &lt;/a&gt;&lt;/th&gt;\n&lt;th&gt;&lt;a href=\&#34;https://post.smzdm.com/hot_30/\&#34;&gt; 30天热文 什么值得买 &lt;/a&gt;&lt;/th&gt;\n&lt;th&gt;&lt;/th&gt;\n&lt;/tr&gt;\n&lt;/thead&gt;\n&lt;tbody&gt;\n&lt;tr&gt;\n&lt;td&gt;&lt;a href=\&#34;https://pub.alimama.com/\&#34;&gt; 淘宝联盟 &lt;/a&gt;&lt;/td&gt;\n&lt;td&gt;&lt;a href=\&#34;https://jinbao.pinduoduo.com/\&#34;&gt; 多多进宝 &lt;/a&gt;&lt;/td&gt;\n&lt;td&gt;&lt;a href=\&#34;https://youhui.pinduoduo.com/\&#34;&gt; 拼多多优惠 &lt;/a&gt;&lt;/td&gt;\n&lt;/tr&gt;\n&lt;/tbody&gt;\n&lt;/table&gt;\n&lt;hr&gt;\n&lt;h1 id=\&#34;网络工程师\&#34;&gt;网络工程师&lt;/h1&gt;\n&lt;table&gt;\n&lt;thead&gt;\n&lt;tr&gt;\n&lt;th&gt;&lt;a href=\&#34;http://bbs.hh010.com/\&#34;&gt; 鸿鹄论坛 &lt;/a&gt;&lt;/th&gt;\n&lt;th&gt;&lt;a href=\&#34;http://bbs.vlan5.com/\&#34;&gt; 攻城狮论坛 &lt;/a&gt;&lt;/th&gt;\n&lt;th&gt;&lt;a href=\&#34;http://www.ccietea.com/\&#34;&gt; 红茶三杯 &lt;/a&gt;&lt;/th&gt;\n&lt;th&gt;&lt;a href=\&#34;https://ccna60d.xfoss.com/\&#34;&gt; 60天通过CCNA考试 &lt;/a&gt;&lt;/th&gt;\n&lt;/tr&gt;\n&lt;/thead&gt;\n&lt;tbody&gt;\n&lt;tr&gt;\n&lt;td&gt;&lt;a href=\&#34;https://mirrors.tuna.tsinghua.edu.cn/\&#34;&gt;  清华大学开源站 &lt;/a&gt;&lt;/td&gt;\n&lt;td&gt;&lt;a href=\&#34;https://developer.aliyun.com/mirror\&#34;&gt;  阿里云开源站 &lt;/a&gt;&lt;/td&gt;\n&lt;td&gt;&lt;a href=\&#34;http://mirrors.163.com/\&#34;&gt;  网易开源站 &lt;/a&gt;&lt;/td&gt;\n&lt;td&gt;&lt;a href=\&#34;https://hub.daocloud.io/\&#34;&gt; docker 镜像站  &lt;/a&gt;&lt;/td&gt;\n&lt;/tr&gt;\n&lt;tr&gt;\n&lt;td&gt;&lt;a href=\&#34;https://www.ioiox.com/\&#34;&gt; 思有云 &lt;/a&gt;&lt;/td&gt;\n&lt;td&gt;&lt;a href=\&#34;https://shumeipai.nxez.com/\&#34;&gt; 树莓派实验室 &lt;/a&gt;&lt;/td&gt;\n&lt;td&gt;&lt;/td&gt;\n&lt;td&gt;&lt;/td&gt;\n&lt;/tr&gt;\n&lt;/tbody&gt;\n&lt;/table&gt;\n&lt;hr&gt;\n&lt;h1 id=\&#34;国外\&#34;&gt;国外&lt;/h1&gt;\n&lt;table&gt;\n&lt;thead&gt;\n&lt;tr&gt;\n&lt;th&gt;&lt;a href=\&#34;https://www.google.com/\&#34;&gt; google &lt;/a&gt;&lt;/th&gt;\n&lt;th&gt;&lt;a href=\&#34;https://92.247.181.40/\&#34;&gt; inoreader &lt;/a&gt;&lt;/th&gt;\n&lt;th&gt;&lt;a href=\&#34;https://twitter.com/\&#34;&gt; twitter &lt;/a&gt;&lt;/th&gt;\n&lt;th&gt;&lt;a href=\&#34;https://youtube.com/\&#34;&gt; youtube &lt;/a&gt;&lt;/th&gt;\n&lt;th&gt;&lt;a href=\&#34;https://www.tumblr.com/\&#34;&gt; tumble &lt;/a&gt;&lt;/th&gt;\n&lt;th&gt;&lt;a href=\&#34;http://www.reddit.com\&#34;&gt; readdit &lt;/a&gt;&lt;/th&gt;\n&lt;/tr&gt;\n&lt;/thead&gt;\n&lt;tbody&gt;&lt;/tbody&gt;\n&lt;/table&gt;\n&lt;hr&gt;\n&lt;h1 id=\&#34;学习\&#34;&gt;学习&lt;/h1&gt;\n&lt;table&gt;\n&lt;thead&gt;\n&lt;tr&gt;\n&lt;th&gt;&lt;a href=\&#34;https://open.163.com/\&#34;&gt; 网易公开课 &lt;/a&gt;&lt;/th&gt;\n&lt;th&gt;&lt;a href=\&#34;https://study.163.com/\&#34;&gt;网易云课堂&lt;/a&gt;&lt;/th&gt;\n&lt;th&gt;&lt;a href=\&#34;https://ke.qq.com/\&#34;&gt; 腾讯课堂 &lt;/a&gt;&lt;/th&gt;\n&lt;th&gt;&lt;a href=\&#34;https://ilearningx.huawei.com/portal/\&#34;&gt; huawei &lt;/a&gt;&lt;/th&gt;\n&lt;/tr&gt;\n&lt;/thead&gt;\n&lt;tbody&gt;\n&lt;tr&gt;\n&lt;td&gt;&lt;a href=\&#34;https://next.xuetangx.com/\&#34;&gt; 学堂在线 &lt;/a&gt;&lt;/td&gt;\n&lt;td&gt;&lt;a href=\&#34;https://www.icourse163.org/\&#34;&gt;中国大学MOOC&lt;/a&gt;&lt;/td&gt;\n&lt;td&gt;&lt;a href=\&#34;https://www.imooc.com/\&#34;&gt; 慕课网 &lt;/a&gt;&lt;/td&gt;\n&lt;td&gt;&lt;a href=\&#34;https://yixi.tv/\&#34;&gt; 一席 &lt;/a&gt;&lt;/td&gt;\n&lt;/tr&gt;\n&lt;tr&gt;\n&lt;td&gt;&lt;a href=\&#34;https://www.ichunqiu.com/\&#34;&gt; i春秋  &lt;/a&gt;&lt;/td&gt;\n&lt;td&gt;&lt;a href=\&#34;https://www.jikexueyuan.com/\&#34;&gt; 极客学院  &lt;/a&gt;&lt;/td&gt;\n&lt;td&gt;&lt;a href=\&#34;https://live.freebuf.com/\&#34;&gt; freebuf公开课  &lt;/a&gt;&lt;/td&gt;\n&lt;td&gt;&lt;a href=\&#34;https://www.shiyanlou.com/\&#34;&gt; 实验楼 &lt;/a&gt;&lt;/td&gt;\n&lt;/tr&gt;\n&lt;tr&gt;\n&lt;td&gt;&lt;a href=\&#34;https://space.bilibili.com/8188433/\&#34;&gt; TED君  &lt;/a&gt;&lt;/td&gt;\n&lt;td&gt;&lt;a href=\&#34;https://space.bilibili.com/386871393/\&#34;&gt; SCOTTHYOUNG  &lt;/a&gt;&lt;/td&gt;\n&lt;td&gt;&lt;a href=\&#34;https://www.bilibili.com/video/BV12b4111733\&#34;&gt; 谢孟媛英语  &lt;/a&gt;&lt;/td&gt;\n&lt;td&gt;&lt;a href=\&#34;https://www.bilibili.com/video/BV1Nb411w7Gm\&#34;&gt; 柯林斯词频  &lt;/a&gt;&lt;/td&gt;\n&lt;/tr&gt;\n&lt;tr&gt;\n&lt;td&gt;&lt;a href=\&#34;https://space.bilibili.com/453972/\&#34;&gt; 阿狸才不是受  &lt;/a&gt;&lt;/td&gt;\n&lt;td&gt;&lt;a href=\&#34;https://space.bilibili.com/133901828/\&#34;&gt; 二斤啦啦啦啦  &lt;/a&gt;&lt;/td&gt;\n&lt;td&gt;&lt;a href=\&#34;https://space.bilibili.com/338748561/\&#34;&gt; 喵喵折App  &lt;/a&gt;&lt;/td&gt;\n&lt;td&gt;&lt;/td&gt;\n&lt;/tr&gt;\n&lt;tr&gt;\n&lt;td&gt;&lt;a href=\&#34;https://space.bilibili.com/105690033/\&#34;&gt; 闫辉6IE  &lt;/a&gt;&lt;/td&gt;\n&lt;td&gt;&lt;a href=\&#34;https://space.bilibili.com/392202707/\&#34;&gt; 马哥高薪IT实战 &lt;/a&gt;&lt;/td&gt;\n&lt;td&gt;&lt;a href=\&#34;https://space.bilibili.com/412127397/\&#34;&gt; 乾颐堂  &lt;/a&gt;&lt;/td&gt;\n&lt;td&gt;&lt;a href=\&#34;https://www.bilibili.com/video/BV1Bx411g7gD\&#34;&gt; PowerShell 3.0  &lt;/a&gt;&lt;/td&gt;\n&lt;/tr&gt;\n&lt;/tbody&gt;\n&lt;/table&gt;\n&lt;hr&gt;\n&lt;h1 id=\&#34;安全网站\&#34;&gt;安全网站&lt;/h1&gt;\n&lt;table&gt;\n&lt;thead&gt;\n&lt;tr&gt;\n&lt;th&gt;&lt;a href=\&#34;https://navisec.it/\&#34;&gt; navisec &lt;/a&gt;&lt;/th&gt;\n&lt;th&gt;&lt;a href=\&#34;http://www.freebuf.com\&#34;&gt; frebuf &lt;/a&gt;&lt;/th&gt;\n&lt;th&gt;&lt;a href=\&#34;https://www.ichunqiu.com\&#34;&gt; i春秋 &lt;/a&gt;&lt;/th&gt;\n&lt;th&gt;&lt;a href=\&#34;https://www.secpulse.com/\&#34;&gt; 安全脉搏 &lt;/a&gt;&lt;/th&gt;\n&lt;th&gt;&lt;a href=\&#34;https://www.sec-wiki.com/\&#34;&gt; 安全wiki &lt;/a&gt;&lt;/th&gt;\n&lt;/tr&gt;\n&lt;/thead&gt;\n&lt;tbody&gt;\n&lt;tr&gt;\n&lt;td&gt;&lt;a href=\&#34;https://xz.aliyun.com/\&#34;&gt; 先知论坛 &lt;/a&gt;&lt;/td&gt;\n&lt;td&gt;&lt;a href=\&#34;http://bbs.pediy.com/\&#34;&gt; 看雪论坛 &lt;/a&gt;&lt;/td&gt;\n&lt;td&gt;&lt;/td&gt;\n&lt;td&gt;&lt;a href=\&#34;https://juejin.im/\&#34;&gt; 掘金 &lt;/a&gt;&lt;/td&gt;\n&lt;td&gt;&lt;a href=\&#34;https://www.4hou.com\&#34;&gt; 嘶吼 &lt;/a&gt;&lt;/td&gt;\n&lt;/tr&gt;\n&lt;tr&gt;\n&lt;td&gt;&lt;a href=\&#34;https://gitee.com/\&#34;&gt; 码云 &lt;/a&gt;&lt;/td&gt;\n&lt;td&gt;&lt;a href=\&#34;https://about.gitlab.com/\&#34;&gt; gitlab &lt;/a&gt;&lt;/td&gt;\n&lt;td&gt;&lt;a href=\&#34;https://coding.net/\&#34;&gt; coding托管 &lt;/a&gt;&lt;/td&gt;\n&lt;td&gt;&lt;a href=\&#34;https://www.cnblogs.com/\&#34;&gt; 博客园 &lt;/a&gt;&lt;/td&gt;\n&lt;td&gt;&lt;a href=\&#34;https://github.com/riusksk/secbook\&#34;&gt;信息安全书单&lt;/a&gt;&lt;/td&gt;\n&lt;/tr&gt;\n&lt;/tbody&gt;\n&lt;/table&gt;\n&lt;hr&gt;\n&lt;h1 id=\&#34;小说\&#34;&gt;小说&lt;/h1&gt;\n&lt;table&gt;\n&lt;thead&gt;\n&lt;tr&gt;\n&lt;th&gt;&lt;a href=\&#34;https://www.jiumodiary.com/\&#34;&gt; 鸠摩搜索  &lt;/a&gt;&lt;/th&gt;\n&lt;th&gt;&lt;a href=\&#34;https://www.shiyisoushu.com/\&#34;&gt; 时宜搜书 &lt;/a&gt;&lt;/th&gt;\n&lt;th&gt;&lt;a href=\&#34;https://ebook.huzerui.com/\&#34;&gt; 熊猫搜书 &lt;/a&gt;&lt;/th&gt;\n&lt;th&gt;&lt;a href=\&#34;https://www.yuedu.pro/\&#34;&gt; 阅读链 &lt;/a&gt;&lt;/th&gt;\n&lt;th&gt;&lt;a href=\&#34;https://book.zhishikoo.com/\&#34;&gt; 书籍知识库 &lt;/a&gt;&lt;/th&gt;\n&lt;/tr&gt;\n&lt;/thead&gt;\n&lt;tbody&gt;\n&lt;tr&gt;\n&lt;td&gt;&lt;a href=\&#34;http://www.zxcs.me/\&#34;&gt; 知轩藏书  &lt;/a&gt;&lt;/td&gt;\n&lt;td&gt;&lt;a href=\&#34;https://www.biquge5200.cc/\&#34;&gt; 笔趣阁 &lt;/a&gt;&lt;/td&gt;\n&lt;td&gt;&lt;/td&gt;\n&lt;td&gt;&lt;/td&gt;\n&lt;td&gt;&lt;a href=\&#34;http://cn.epubee.com\&#34;&gt;epubee&lt;/a&gt;&lt;/td&gt;\n&lt;/tr&gt;\n&lt;/tbody&gt;\n&lt;/table&gt;\n&lt;hr&gt;\n&lt;h1 id=\&#34;软件网站\&#34;&gt;软件网站&lt;/h1&gt;\n&lt;table&gt;\n&lt;thead&gt;\n&lt;tr&gt;\n&lt;th&gt;&lt;a href=\&#34;https://www.52pojie.cn/forum-16-1.html\&#34;&gt; 吾爱破解  &lt;/a&gt;&lt;/th&gt;\n&lt;th&gt;&lt;a href=\&#34;http://www.appinn.com/\&#34;&gt; 小众软件 &lt;/a&gt;&lt;/th&gt;\n&lt;th&gt;&lt;a href=\&#34;https://www.ghpym.com/\&#34;&gt;果核剥壳&lt;/a&gt;&lt;/th&gt;\n&lt;th&gt;&lt;a href=\&#34;http://www.ypojie.com/\&#34;&gt;易破解&lt;/a&gt;&lt;/th&gt;\n&lt;th&gt;&lt;a href=\&#34;https://disk.misiai.com/\&#34;&gt;懒盘聚合&lt;/a&gt;&lt;/th&gt;\n&lt;/tr&gt;\n&lt;/thead&gt;\n&lt;tbody&gt;\n&lt;tr&gt;\n&lt;td&gt;&lt;a href=\&#34;http://yx.bsh.me/\&#34;&gt;异星软件&lt;/a&gt;&lt;/td&gt;\n&lt;td&gt;&lt;a href=\&#34;https://www.aiweibk.com/\&#34;&gt;艾薇下载站&lt;/a&gt;&lt;/td&gt;\n&lt;td&gt;&lt;a href=\&#34;https://www.portablesoft.org/\&#34;&gt;绿色资源网&lt;/a&gt;&lt;/td&gt;\n&lt;td&gt;&lt;a href=\&#34;http://pan.lanzou.com/u/%E5%BD%AA%E7%85%8Cqq1846055318\&#34;&gt; bhvip软件团队  &lt;/a&gt;&lt;/td&gt;\n&lt;td&gt;&lt;/td&gt;\n&lt;/tr&gt;\n&lt;/tbody&gt;\n&lt;/table&gt;\n&lt;hr&gt;\n&lt;h1 id=\&#34;下载软件\&#34;&gt;下载软件&lt;/h1&gt;\n&lt;table&gt;\n&lt;thead&gt;\n&lt;tr&gt;\n&lt;th&gt;&lt;a href=\&#34;https://carrotchou.lanzous.com/b0gwopzc\&#34;&gt; IDM &lt;/a&gt;&lt;/th&gt;\n&lt;th&gt;&lt;a href=\&#34;https://subhra74.github.io/xdm/\&#34;&gt; XDM &lt;/a&gt;&lt;/th&gt;\n&lt;th&gt;&lt;a href=\&#34;http://bbs.xiaokanba.com/download.html\&#34;&gt; 闪电下载 &lt;/a&gt;&lt;/th&gt;\n&lt;th&gt;&lt;a href=\&#34;https://motrix.app/zh-CN\&#34;&gt; Motrix &lt;/a&gt;&lt;/th&gt;\n&lt;th&gt;&lt;a href=\&#34;http://aria2c.com/archiver/aria2.zip\&#34;&gt; aria2懒人包 &lt;/a&gt;&lt;/th&gt;\n&lt;th&gt;&lt;a href=\&#34;https://raw.githubusercontent.com/ngosang/trackerslist/master/trackers_best.txt\&#34;&gt;trackers&lt;/a&gt;&lt;/th&gt;\n&lt;/tr&gt;\n&lt;/thead&gt;\n&lt;tbody&gt;&lt;/tbody&gt;\n&lt;/table&gt;\n&lt;hr&gt;\n&lt;h1 id=\&#34;科学上网\&#34;&gt;科学上网&lt;/h1&gt;\n&lt;p&gt;&lt;a href=\&#34;https://github.com/Dreamacro/clash\&#34;&gt; clash &lt;/a&gt;&lt;br&gt;\n&lt;a href=\&#34;https://github.com/2dust/v2rayN/releases\&#34;&gt; v2ray &lt;/a&gt;&lt;/p&gt;\n&lt;hr&gt;\n&lt;h1 id=\&#34;图库和图床\&#34;&gt;图库和图床&lt;/h1&gt;\n&lt;table&gt;\n&lt;thead&gt;\n&lt;tr&gt;\n&lt;th&gt;&lt;a href=\&#34;http://huaban.com/\&#34;&gt; 花瓣网 &lt;/a&gt;&lt;/th&gt;\n&lt;th&gt;&lt;a href=\&#34;https://m.pixivic.com/dailyRank?VNK=8b40953b\&#34;&gt;pixiv-china&lt;/a&gt;&lt;/th&gt;\n&lt;th&gt;&lt;a href=\&#34;https://imgkr.com\&#34;&gt;图壳&lt;/a&gt;&lt;/th&gt;\n&lt;th&gt;&lt;a href=\&#34;https://niupic.com/\&#34;&gt; 牛图网 &lt;/a&gt;&lt;/th&gt;\n&lt;th&gt;&lt;a href=\&#34;https://sm.ms/\&#34;&gt; 图床sm &lt;/a&gt;&lt;/th&gt;\n&lt;th&gt;&lt;a href=\&#34;https://www.superbed.cn/\&#34;&gt; 聚合图床 &lt;/a&gt;&lt;/th&gt;\n&lt;/tr&gt;\n&lt;/thead&gt;\n&lt;tbody&gt;&lt;/tbody&gt;\n&lt;/table&gt;\n&lt;hr&gt;\n&lt;h1 id=\&#34;无版权图片素材\&#34;&gt;无版权图片素材&lt;/h1&gt;\n&lt;p&gt;使用图片时，一定要区分该图片授给网站的类型，认真阅读网站协议条款，避免日后不必要的纠纷&lt;/p&gt;\n&lt;table&gt;\n&lt;thead&gt;\n&lt;tr&gt;\n&lt;th&gt;&lt;a href=\&#34;https://pixabay.com\&#34;&gt; Pixabay &lt;/a&gt;&lt;/th&gt;\n&lt;th&gt;&lt;a href=\&#34;http://www.polayoutu.com\&#34;&gt; 泼辣有图 &lt;/a&gt;&lt;/th&gt;\n&lt;th&gt;&lt;a href=\&#34;https://unsplash.com\&#34;&gt; Unsplash &lt;/a&gt;&lt;/th&gt;\n&lt;th&gt;&lt;a href=\&#34;https://pngtree.com\&#34;&gt; pngtree &lt;/a&gt;&lt;/th&gt;\n&lt;th&gt;&lt;a href=\&#34;https://foter.com\&#34;&gt; Foter &lt;/a&gt;&lt;/th&gt;\n&lt;th&gt;&lt;a href=\&#34;https://www.foodiesfeed.com\&#34;&gt; Foodiesfeed &lt;/a&gt;&lt;/th&gt;\n&lt;/tr&gt;\n&lt;/thead&gt;\n&lt;tbody&gt;&lt;/tbody&gt;\n&lt;/table&gt;\n&lt;hr&gt;\n&lt;h1 id=\&#34;游戏\&#34;&gt;游戏&lt;/h1&gt;\n&lt;table&gt;\n&lt;thead&gt;\n&lt;tr&gt;\n&lt;th&gt;&lt;a href=\&#34;https://3dmgame.com\&#34;&gt; 3dm  &lt;/a&gt;&lt;/th&gt;\n&lt;th&gt;&lt;a href=\&#34;https://gamersky.com\&#34;&gt; 游民星空 &lt;/a&gt;&lt;/th&gt;\n&lt;th&gt;&lt;a href=\&#34;https://www.ali213.net\&#34;&gt;游侠网&lt;/a&gt;&lt;/th&gt;\n&lt;th&gt;&lt;a href=\&#34;https://github.com/EmuELEC/EmuELEC/releases\&#34;&gt; 模拟器EmuELEC &lt;/a&gt;&lt;/th&gt;\n&lt;th&gt;&lt;a href=\&#34;http://pewpewpew.work\&#34;&gt; 枪炮世界  &lt;/a&gt;&lt;/th&gt;\n&lt;/tr&gt;\n&lt;/thead&gt;\n&lt;tbody&gt;\n&lt;tr&gt;\n&lt;td&gt;&lt;a href=\&#34;https://www.taptap.com/\&#34;&gt; TapTap &lt;/a&gt;&lt;/td&gt;\n&lt;td&gt;&lt;a href=\&#34;https://www.25game.com/\&#34;&gt; 爱吾游戏 &lt;/a&gt;&lt;/td&gt;\n&lt;td&gt;&lt;a href=\&#34;https://www.vqs.com/\&#34;&gt; 骑士下载 &lt;/a&gt;&lt;/td&gt;\n&lt;td&gt;&lt;a href=\&#34;http://game333.net\&#34;&gt; 游乐园 &lt;/a&gt;&lt;/td&gt;\n&lt;td&gt;&lt;/td&gt;\n&lt;/tr&gt;\n&lt;/tbody&gt;\n&lt;/table&gt;\n&lt;hr&gt;\n&lt;h1 id=\&#34;时尚\&#34;&gt;时尚&lt;/h1&gt;\n&lt;table&gt;\n&lt;thead&gt;\n&lt;tr&gt;\n&lt;th&gt;&lt;a href=\&#34;http://www.yoka.com/dna/m/\&#34;&gt; yoka &lt;/a&gt;&lt;/th&gt;\n&lt;th&gt;&lt;a href=\&#34;http://enrz.com/\&#34;&gt; 男人装 &lt;/a&gt;&lt;/th&gt;\n&lt;/tr&gt;\n&lt;/thead&gt;\n&lt;tbody&gt;&lt;/tbody&gt;\n&lt;/table&gt;\n&lt;hr&gt;\n&lt;h1 id=\&#34;rss\&#34;&gt;RSS&lt;/h1&gt;\n&lt;table&gt;\n&lt;thead&gt;\n&lt;tr&gt;\n&lt;th&gt;&lt;a href=\&#34;https://theoldreader.com/\&#34;&gt; tholdreader &lt;/a&gt;&lt;/th&gt;\n&lt;th&gt;&lt;a href=\&#34;https://www.ioiox.com/archives/94.html\&#34;&gt; 免费rsshub和ttrss &lt;/a&gt;&lt;/th&gt;\n&lt;th&gt;&lt;a href=\&#34;https://huginn.cn/\&#34;&gt;huginn&lt;/a&gt;&lt;/th&gt;\n&lt;/tr&gt;\n&lt;/thead&gt;\n&lt;tbody&gt;&lt;/tbody&gt;\n&lt;/table&gt;\n&lt;hr&gt;\n&lt;h1 id=\&#34;其他\&#34;&gt;其他&lt;/h1&gt;\n&lt;table&gt;\n&lt;thead&gt;\n&lt;tr&gt;\n&lt;th&gt;&lt;a href=\&#34;https://dzhi.droppages.com/\&#34;&gt; 蓝色导航 &lt;/a&gt;&lt;/th&gt;\n&lt;th&gt;&lt;a href=\&#34;https://xn--kcrx7j5tego1bv9fbre.com\&#34;&gt; 福利网址导航 &lt;/a&gt;&lt;/th&gt;\n&lt;th&gt;&lt;a href=\&#34;https://porndabster.com/\&#34;&gt; porndabster  &lt;/a&gt;&lt;/th&gt;\n&lt;th&gt;&lt;a href=\&#34;https://theporndude.com/\&#34;&gt; theporndude  &lt;/a&gt;&lt;/th&gt;\n&lt;/tr&gt;\n&lt;/thead&gt;\n&lt;tbody&gt;\n&lt;tr&gt;\n&lt;td&gt;&lt;a href=\&#34;http://www.timliao.com/bbs/forumdisplay.php?fid=18\&#34;&gt; 提姆正妹  &lt;/a&gt;&lt;/td&gt;\n&lt;td&gt;&lt;a href=\&#34;https://www.mzitu.com/\&#34;&gt;妹子图&lt;/a&gt;&lt;/td&gt;\n&lt;td&gt;&lt;/td&gt;\n&lt;td&gt;&lt;/td&gt;\n&lt;/tr&gt;\n&lt;tr&gt;\n&lt;td&gt;&lt;a href=\&#34;https://app.swag.live/\&#34;&gt; swag直播  &lt;/a&gt;&lt;/td&gt;\n&lt;td&gt;&lt;a href=\&#34;https://coub.com/\&#34;&gt; coub &lt;/a&gt;&lt;/td&gt;\n&lt;td&gt;&lt;a href=\&#34;http://www.yaojiwu.com/\&#34;&gt; 妖姬屋  &lt;/a&gt;&lt;/td&gt;\n&lt;td&gt;&lt;a href=\&#34;http://xinmadou.cn/\&#34;&gt;新麻豆&lt;/a&gt;&lt;/td&gt;\n&lt;/tr&gt;\n&lt;tr&gt;\n&lt;td&gt;&lt;a href=\&#34;https://www.crazyshit.com/\&#34;&gt; crazshit  &lt;/a&gt;&lt;/td&gt;\n&lt;td&gt;&lt;/td&gt;\n&lt;td&gt;&lt;/td&gt;\n&lt;td&gt;&lt;a href=\&#34;http://38.103.161.16/forum/\&#34;&gt;第一会所&lt;/a&gt;&lt;/td&gt;\n&lt;/tr&gt;\n&lt;tr&gt;\n&lt;td&gt;&lt;a href=\&#34;https://sleazyfork.org/zh-CN/scripts\&#34;&gt; porn脚本  &lt;/a&gt;&lt;/td&gt;\n&lt;td&gt;&lt;a href=\&#34;https://xvideosjx.com/\&#34;&gt;xvideos&lt;/a&gt;&lt;/td&gt;\n&lt;td&gt;&lt;a href=\&#34;https://whereisph.com/\&#34;&gt;pornhub&lt;/a&gt;&lt;/td&gt;\n&lt;td&gt;&lt;a href=\&#34;https://xnxx5.tk/\&#34;&gt;xnxx&lt;/a&gt;&lt;/td&gt;\n&lt;/tr&gt;\n&lt;/tbody&gt;\n&lt;/table&gt;\n&lt;hr&gt;\n&lt;h1 id=\&#34;磁力\&#34;&gt;磁力&lt;/h1&gt;\n&lt;table&gt;\n&lt;thead&gt;\n&lt;tr&gt;\n&lt;th&gt;&lt;a href=\&#34;https://www.btxqz.com\&#34;&gt; 比特星球 &lt;/a&gt;&lt;/th&gt;\n&lt;th&gt;&lt;a href=\&#34;https://thepiratebay10.org/\&#34;&gt;海盗网&lt;/a&gt;   &lt;a href=\&#34;http://thepiratebay.se.net/\&#34;&gt;海盗网&lt;/a&gt;&lt;/th&gt;\n&lt;th&gt;&lt;a href=\&#34;https://www.yuhuage.club/\&#34;&gt;雨花阁磁力&lt;/a&gt;&lt;/th&gt;\n&lt;/tr&gt;\n&lt;/thead&gt;\n&lt;tbody&gt;\n&lt;tr&gt;\n&lt;td&gt;&lt;a href=\&#34;https://www.tokyotosho.info/\&#34;&gt;东京图书馆&lt;/a&gt;&lt;/td&gt;\n&lt;td&gt;&lt;a href=\&#34;https://btsow.cam/convert/magnet\&#34;&gt;BTSOW&lt;/a&gt;&lt;/td&gt;\n&lt;td&gt;&lt;/td&gt;\n&lt;/tr&gt;\n&lt;/tbody&gt;\n&lt;/table&gt;\n&lt;hr&gt;\n&#34;,&#34;fileName&#34;:&#34;chong-qi-wang-zhan-dao-hang&#34;,&#34;abstract&#34;:&#34;&#34;,&#34;title&#34;:&#34;重启网站导航&#34;,&#34;tags&#34;:[],&#34;date&#34;:&#34;2021-05-01 17:12:00&#34;,&#34;dateFormat&#34;:&#34;2021-05-01&#34;,&#34;feature&#34;:&#34;&#34;,&#34;link&#34;:&#34;https://vincentsui.github.io/chong-qi-wang-zhan-dao-hang/&#34;,&#34;hideInList&#34;:false,&#34;isTop&#34;:false,&#34;stats&#34;:{&#34;text&#34;:&#34;4 min read&#34;,&#34;time&#34;:193000,&#34;words&#34;:885,&#34;minutes&#34;:4},&#34;description&#34;:&#34;搜索引擎\n\n\n\n 秘技搜索 \nyandex\nBing\n\n\n\n\n 程序员搜索 \n magi \n 萌搜 \n\n\n重启存档\n\n\n\n\n\n\n导航网站\n\n\n\n 龙猫 \n 阳光导航 \n 龙轩导航 \n 阿猫阿狗 \n no404 \n爱达杂货铺\n\n\n\n\n AA导...&#34;,&#34;toc&#34;:&#34;&lt;ul class=\&#34;markdownIt-TOC\&#34;&gt;\n&lt;li&gt;&lt;a href=\&#34;#%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E\&#34;&gt;搜索引擎&lt;/a&gt;&lt;/li&gt;\n&lt;li&gt;&lt;a href=\&#34;#%E5%AF%BC%E8%88%AA%E7%BD%91%E7%AB%99\&#34;&gt;导航网站&lt;/a&gt;&lt;/li&gt;\n&lt;li&gt;&lt;a href=\&#34;#%E5%B8%B8%E7%94%A8\&#34;&gt;常用&lt;/a&gt;&lt;/li&gt;\n&lt;li&gt;&lt;a href=\&#34;#%E6%96%B0%E9%97%BB\&#34;&gt;新闻&lt;/a&gt;&lt;/li&gt;\n&lt;li&gt;&lt;a href=\&#34;#%E5%BD%B1%E8%A7%86\&#34;&gt;影视&lt;/a&gt;&lt;/li&gt;\n&lt;li&gt;&lt;a href=\&#34;#%E5%B7%A5%E5%85%B7\&#34;&gt;工具&lt;/a&gt;&lt;/li&gt;\n&lt;li&gt;&lt;a href=\&#34;#%E6%96%B0%E5%AA%92%E4%BD%93\&#34;&gt;新媒体&lt;/a&gt;&lt;/li&gt;\n&lt;li&gt;&lt;a href=\&#34;#%E8%B4%AD%E7%89%A9\&#34;&gt;购物&lt;/a&gt;&lt;/li&gt;\n&lt;li&gt;&lt;a href=\&#34;#%E7%BD%91%E7%BB%9C%E5%B7%A5%E7%A8%8B%E5%B8%88\&#34;&gt;网络工程师&lt;/a&gt;&lt;/li&gt;\n&lt;li&gt;&lt;a href=\&#34;#%E5%9B%BD%E5%A4%96\&#34;&gt;国外&lt;/a&gt;&lt;/li&gt;\n&lt;li&gt;&lt;a href=\&#34;#%E5%AD%A6%E4%B9%A0\&#34;&gt;学习&lt;/a&gt;&lt;/li&gt;\n&lt;li&gt;&lt;a href=\&#34;#%E5%AE%89%E5%85%A8%E7%BD%91%E7%AB%99\&#34;&gt;安全网站&lt;/a&gt;&lt;/li&gt;\n&lt;li&gt;&lt;a href=\&#34;#%E5%B0%8F%E8%AF%B4\&#34;&gt;小说&lt;/a&gt;&lt;/li&gt;\n&lt;li&gt;&lt;a href=\&#34;#%E8%BD%AF%E4%BB%B6%E7%BD%91%E7%AB%99\&#34;&gt;软件网站&lt;/a&gt;&lt;/li&gt;\n&lt;li&gt;&lt;a href=\&#34;#%E4%B8%8B%E8%BD%BD%E8%BD%AF%E4%BB%B6\&#34;&gt;下载软件&lt;/a&gt;&lt;/li&gt;\n&lt;li&gt;&lt;a href=\&#34;#%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91\&#34;&gt;科学上网&lt;/a&gt;&lt;/li&gt;\n&lt;li&gt;&lt;a href=\&#34;#%E5%9B%BE%E5%BA%93%E5%92%8C%E5%9B%BE%E5%BA%8A\&#34;&gt;图库和图床&lt;/a&gt;&lt;/li&gt;\n&lt;li&gt;&lt;a href=\&#34;#%E6%97%A0%E7%89%88%E6%9D%83%E5%9B%BE%E7%89%87%E7%B4%A0%E6%9D%90\&#34;&gt;无版权图片素材&lt;/a&gt;&lt;/li&gt;\n&lt;li&gt;&lt;a href=\&#34;#%E6%B8%B8%E6%88%8F\&#34;&gt;游戏&lt;/a&gt;&lt;/li&gt;\n&lt;li&gt;&lt;a href=\&#34;#%E6%97%B6%E5%B0%9A\&#34;&gt;时尚&lt;/a&gt;&lt;/li&gt;\n&lt;li&gt;&lt;a href=\&#34;#rss\&#34;&gt;RSS&lt;/a&gt;&lt;/li&gt;\n&lt;li&gt;&lt;a href=\&#34;#%E5%85%B6%E4%BB%96\&#34;&gt;其他&lt;/a&gt;&lt;/li&gt;\n&lt;li&gt;&lt;a href=\&#34;#%E7%A3%81%E5%8A%9B\&#34;&gt;磁力&lt;/a&gt;&lt;/li&gt;\n&lt;/ul&gt;\n&#34;}]";
+  // var json = escape.substr(1, escape.length - 2);
+  // var datas = json.split(',');
+  // for (let i=0; i < datas.length; i++) {
+  //   let item = datas[i];
+  //   let attrs = item.split('34;:&#34')
+  //   debugger
+  //   console.log(datas[i])
+  // }
+  let escapeMap = new Map();
+  escapeMap.set('&#34;', '"');
+  escapeMap.set('&gt;', '>');
+  escapeMap.set('&#39;', "'");
+  escapeMap.set('&lt;', '<');
+  escapeMap.set('&quot;', '"');
+  escapeMap.set('&amp;', '&');
+</script> -->
+
+
+
 </html>
