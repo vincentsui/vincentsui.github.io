@@ -8,7 +8,7 @@
 <meta name="keywords" content="Gridea静态个人博客">
 <meta name="description" content="温故而知新">
 <meta name="theme-color" content="#000">
-<title>重生博客</title>
+<title>重启网址导航 | 重生博客</title>
 <link rel="shortcut icon" href="/favicon.ico?v=1620028702138">
 <link rel="stylesheet" href="/styles/main.css">
 <link rel="stylesheet" href="/media/css/pisces.css">
@@ -29,7 +29,8 @@
 
 
 
-  <meta name="description" content="温故而知新">
+  <meta name="description" content="重启网址导航" />
+  <meta name="keywords" content="" />
 </head>
 
 <body>
@@ -78,7 +79,7 @@
             
               
             
-            <li class="nav-item nav-item-active">
+            <li class="nav-item ">
               
               
                 <a href="/archives/" target="_self">
@@ -155,10 +156,26 @@
   <div class="main-continer">
     
     <div
-      class="section-layout  pisces">
+      class="section-layout pisces ">
       <div class="section-layout-wrapper">
-        <div id="sidebarMeta" class="sidebar">
-    
+        
+
+<div class="sidebar">
+  
+    <div class="sidebar-box box-shadow-wrapper bg-color right-motion" id="sidebar">
+      
+        <div class="post-list-sidebar">
+          <div class="sidebar-title">
+            <span id="tocSideBar" class="sidebar-title-item sidebar-title-active">文章目录</span>
+            <span id="metaSideBar" class="sidebar-title-item">站点概览</span>
+          </div>
+        </div>
+      
+      <div class="sidebar-body pisces" id="sidebar_body">
+        
+          
+            <div class="post-side-meta" id="post_side_meta">
+              
 <div class="sidebar-wrapper box-shadow-wrapper bg-color">
   <div class="sidebar-item">
     <img class="site-author-image right-motion" src="/images/avatar.png"/>
@@ -196,110 +213,896 @@
 
 
 </div>
+            </div>
+            <div class="post-toc sidebar-body-active" id="post_toc" style="opacity: 1;">
+              <div class="toc-box right-motion">
+  <div class="toc-wrapper auto-number auto"
+    id="toc_wrapper">
+    <ul class="markdownIt-TOC">
+<li><a href="#%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E">搜索引擎</a></li>
+<li><a href="#%E5%AF%BC%E8%88%AA%E7%BD%91%E7%AB%99">导航网站</a></li>
+<li><a href="#%E5%B8%B8%E7%94%A8">常用</a></li>
+<li><a href="#%E6%96%B0%E9%97%BB">新闻</a></li>
+<li><a href="#%E5%BD%B1%E8%A7%86">影视</a></li>
+<li><a href="#%E5%B7%A5%E5%85%B7">工具</a></li>
+<li><a href="#%E6%96%B0%E5%AA%92%E4%BD%93">新媒体</a></li>
+<li><a href="#%E8%B4%AD%E7%89%A9">购物</a></li>
+<li><a href="#%E7%BD%91%E7%BB%9C%E5%B7%A5%E7%A8%8B%E5%B8%88">网络工程师</a></li>
+<li><a href="#%E5%9B%BD%E5%A4%96">国外</a></li>
+<li><a href="#%E5%AD%A6%E4%B9%A0">学习</a></li>
+<li><a href="#%E5%AE%89%E5%85%A8%E7%BD%91%E7%AB%99">安全网站</a></li>
+<li><a href="#%E5%B0%8F%E8%AF%B4">小说</a></li>
+<li><a href="#%E8%BD%AF%E4%BB%B6%E7%BD%91%E7%AB%99">软件网站</a></li>
+<li><a href="#%E4%B8%8B%E8%BD%BD%E8%BD%AF%E4%BB%B6">下载软件</a></li>
+<li><a href="#%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91">科学上网</a></li>
+<li><a href="#%E5%9B%BE%E5%BA%93%E5%92%8C%E5%9B%BE%E5%BA%8A">图库和图床</a></li>
+<li><a href="#%E6%97%A0%E7%89%88%E6%9D%83%E5%9B%BE%E7%89%87%E7%B4%A0%E6%9D%90">无版权图片素材</a></li>
+<li><a href="#%E6%B8%B8%E6%88%8F">游戏</a></li>
+<li><a href="#%E6%97%B6%E5%B0%9A">时尚</a></li>
+<li><a href="#rss">RSS</a></li>
+<li><a href="#%E5%85%B6%E4%BB%96">其他</a></li>
+<li><a href="#%E7%A3%81%E5%8A%9B">磁力</a></li>
+</ul>
+
+  </div>
 </div>
+
 <script>
-  let sidebarMeta = document.querySelector('#sidebarMeta');
-  let scheme = 'pisces';
-  let sidebarWrapper = document.querySelector('.sidebar-wrapper');
-  if (sidebarMeta && (scheme === 'pisces' || scheme === 'gemini')) {
-    document.addEventListener('scroll', function(e) {
-      if (document.scrollingElement.scrollTop > parseInt(sidebarMeta.style.marginTop) + 10) {
-        sidebarWrapper.classList.add('home-sidebar-fixed')
-      } else {
-        sidebarWrapper.classList.remove('home-sidebar-fixed')
+
+  let lastTop = 0, lList = [], hList = [], postBody, lastIndex = -1;
+  let active = 'active-show', activeClass = 'active-current';
+  let tocWrapper = document.querySelector('#toc_wrapper');
+  let tocContent = tocWrapper.children[0];
+  let autoNumber = tocWrapper && tocWrapper.classList.contains('auto-number');
+
+  function addTocNumber(elem, deep) {
+    if (!elem) {
+      return;
+    }
+    let prop = elem.__proto__;
+
+    if (prop === HTMLUListElement.prototype) {
+      for (let i = 0; i < elem.children.length; i++) {
+        addTocNumber(elem.children[i], deep + (i + 1) + '.');
       }
+    } else if (prop === HTMLLIElement.prototype) {
+      // 保存li元素
+      if (elem.children[0].__proto__ === HTMLAnchorElement.prototype) {
+        lList.push(elem);
+      }
+      for (let i = 0; i < elem.children.length; i++) {
+        let cur = elem.children[i];
+        if (cur.__proto__ === HTMLAnchorElement.prototype) {
+          if (autoNumber) {
+            cur.text = deep + ' ' + cur.text;
+          }
+        } else if (cur.__proto__ === HTMLUListElement.prototype) {
+          addTocNumber(cur, deep);
+        }
+      }
+    }
+  }
+
+  function removeParentActiveClass() {
+    let parents = tocContent.querySelectorAll('.' + active)
+    parents.forEach(function (elem) {
+      elem.classList.remove(active);
     });
   }
-  </script>
-        <div class="section-box box-shadow-wrapper">
-          <section class="section archives-section bg-color posts-expand">
-            
 
-<div class="bg-color">
-  <div class="archive-timeline-box">
-    <div class="archive-timeline-title">
-      
-        <h2>非常好！目前共计4篇日志，继续努力！</h2>
-      
-    </div>
-    
-      
-      
-        <div class="node-title">
-          <h2 class="tag-year">2021</h2>
-        </div>    
+  function addActiveClass(index) {
+    if (index >= 0 && index < hList.length) {
+      lList[index].classList.add(activeClass);
+    }
+  }
+
+  function removeActiveClass(index) {
+    if (index >= 0 && index < hList.length) {
+      lList[index].classList.remove(activeClass);
+    }
+  }
+
+  function addActiveLiElemment(elem, parent) {
+    if (!elem || elem === parent) {
+      return;
+    } else {
+      if (elem.__proto__ === HTMLLIElement.prototype) {
+        elem.classList.add(active);
+      }
+      addActiveLiElemment(elem.parentElement, parent);
+    }
+  }
+
+  function showToc() {
+    if (tocWrapper) {
+      postBody = document.querySelector('#post_body');
+      for (let i = 0; i < postBody.children.length; i++) {
+        if (postBody.children[i].__proto__ === HTMLHeadingElement.prototype) {
+          hList.push(postBody.children[i]);
+        }
+      }
+      if (tocWrapper.classList.contains('compress')) {
+        tocContent.classList.add('closed');
+      } else if (tocWrapper.classList.contains('no_compress')) {
+        tocContent.classList.add('expanded');
+      } else {
+        if (hList.length > 10) {
+          active = 'active-hidden'
+          tocContent.classList.add('closed');
+        } else {
+          tocContent.classList.add('expanded');
+        }
+      }
+    }
+  }
+
+  (function () {
+    // 处理不是从#一级标题开始目录
+    if (tocContent.children.length === 1 && tocContent.children[0].__proto__ === HTMLLIElement.prototype) {
+      let con = tocContent.children[0].children[0];
+      tocContent.innerHTML = con.innerHTML;
+    }
+    let markdownItTOC = document.querySelector('.markdownIt-TOC');
+    let innerHeight = window.innerHeight;
+    markdownItTOC.style = `max-height: ${innerHeight - 80 > 0 ? innerHeight - 80 : innerHeight}px`
+    addTocNumber(tocContent, '');
+  })();
+
+  document.addEventListener('scroll', function (e) {
+    if (lList.length <= 0) {
+      return;
+    }
+    let scrollTop = document.scrollingElement.scrollTop + 10;
+    let dir;
+
+    if (lastTop - scrollTop > 0) {
+      dir = 'up';
+    } else {
+      dir = 'down';
+    }
+
+    lastTop = scrollTop;
+    if (scrollTop <= 0) {
+      if (lastIndex >= 0 && lastIndex < hList.length) {
+        lList[lastIndex].classList.remove(activeClass);
+      }
+      return;
+    }
+
+    let current = 0, hasFind = false;
+    for (let i = 0; i < hList.length; i++) {
+      if (hList[i].offsetTop > scrollTop) {
+        current = i;
+        hasFind = true;
+        break;
+      }
+    }
+    if (!hasFind && scrollTop > lList[lList.length - 1].offsetTop) {
+      current = hList.length - 1;
+    } else {
+      current--;
+    }
+    if (dir === 'down') {
+      if (current > lastIndex) {
+        addActiveClass(current);
+        removeActiveClass(lastIndex)
+        lastIndex = current;
+        removeParentActiveClass();
+        lList[current] && addActiveLiElemment(lList[current].parentElement, tocContent);
+      }
+    } else {
+      if (current < lastIndex) {
+        addActiveClass(current);
+        removeActiveClass(lastIndex);
+        lastIndex = current;
+        removeParentActiveClass();
+        lList[current] && addActiveLiElemment(lList[current].parentElement, tocContent);
+      }
+    }
+  });
+
+
+  window.addEventListener('load', function () {
+    showToc();
+    document.querySelector('#sidebar').style = 'display: block;';
+    tocWrapper.classList.add('toc-active');
+    setTimeout(function () {
+      if ("createEvent" in document) {
+        let evt = document.createEvent("HTMLEvents");
+        evt.initEvent("scroll", false, true);
+        document.dispatchEvent(evt);
+      }
+      else {
+        document.fireEvent("scroll");
+      }
+    }, 500)
+  })
+
+</script>
+            </div>
+          
         
-      
-      <a href="https://vincentsui.github.io/chong-qi-wang-zhi-dao-hang/">
-        <div class="motion-warpper tag-archive-node">
-          <div class="tag-node">
-            <h1>
-              05-03
-              <small>重启网址导航</small>
-            </h1>
-          </div>  
       </div>
-      </a>
+    </div>
+  
+</div>
+<script>
+  const SIDEBAR_TITLE_ACTIVE = 'sidebar-title-active';
+  const SIDEBAR_BODY_ACTIVE = 'sidebar-body-active';
+  const SLIDE_UP_IN = 'slide-up-in';
+
+  let sidebar = document.querySelector('#sidebar'),
+  tocSideBar = document.querySelector('#tocSideBar'),
+  metaSideBar = document.querySelector('#metaSideBar'),
+  postToc = document.querySelector('#post_toc'),
+  postSiteMeta = document.querySelector('#post_side_meta'),
+  sidebarTitle = document.querySelector('.sidebar-title'),
+  sidebarBody = document.querySelector('#sidebar_body');
+
+  tocSideBar && tocSideBar.addEventListener('click', (e) => {
+    toggleSidebar(e);
+  });
+
+  metaSideBar && metaSideBar.addEventListener('click', (e) => {
+    toggleSidebar(e);
+  });
+
+  function toggleSidebar(e) {
+    let currentTitle = document.querySelector("."+SIDEBAR_TITLE_ACTIVE);
+    if (currentTitle == e.srcElement) {
+      return ;
+    }
+    let current, showElement, hideElement;
+    if (e.srcElement == metaSideBar) {
+      showElement = postSiteMeta;
+      hideElement = postToc;
+    } else if (e.srcElement == tocSideBar){
+      showElement = postToc;
+      hideElement = postSiteMeta;
+    }
+    currentTitle.classList.remove(SIDEBAR_TITLE_ACTIVE);
+    e.srcElement.classList.add(SIDEBAR_TITLE_ACTIVE);
+
+    window.Velocity(hideElement, 'stop');
+    window.Velocity(hideElement, 'transition.slideUpOut', {
+      display: 'none',
+      duration: 200,
+      complete: function () {
+        window.Velocity(showElement, 'transition.slideDownIn', {
+          duration: 200
+        });
+      }
+    })
+    hideElement.classList.remove(SIDEBAR_BODY_ACTIVE);
+    showElement.classList.add(SIDEBAR_BODY_ACTIVE);
+  }
+
+  postToc && postToc.addEventListener('transitionend', function() {
+    this.classList.remove(SLIDE_UP_IN);
+  });
+
+  if (sidebarBody) {
+    if (sidebarBody.classList.contains('pisces') || sidebarBody.classList.contains('gemini')) {
+      let hasFix = false;
+      let scrollEl = document.querySelector('.main-continer');
+      let limitTop = document.querySelector('#nav_ul').children.length * 42 + 162;
+      window.addEventListener('scroll', function(e) {
+        if (document.scrollingElement.scrollTop >= limitTop) {
+          if (!hasFix) {
+            sidebar.classList.add('sidebar-fixed');
+            hasFix = true;
+          }
+        } else {
+          if (hasFix) {
+            sidebar.classList.remove('sidebar-fixed');
+            hasFix = false;
+          }
+        }
+      });
+    }
+  }
+  
+</script>
+        <div class="section-box box-shadow-wrapper">
+          <div class="section bg-color post post-page">
+            <header class="post-header">
+  <h1 class="post-title">
+    <a class="post-title-link" href="https://vincentsui.github.io/chong-qi-wang-zhi-dao-hang/">
+      重启网址导航
+    </a>
+  </h1>
+  <div class="post-meta">
     
-      
-      
-      <a href="https://vincentsui.github.io/zhuan-qian/">
-        <div class="motion-warpper tag-archive-node">
-          <div class="tag-node">
-            <h1>
-              05-03
-              <small>赚钱</small>
-            </h1>
-          </div>  
-      </div>
-      </a>
+    <span class="meta-item pc-show">
+      <i class="fa fa-calendar-o"></i>
+      <span>发布于</span>
+      <span>2021-05-03</span>
+      <span class="post-meta-divider pc-show">|</span>
+    </span>
     
-      
-      
-      <a href="https://vincentsui.github.io/jian-shu-xue-xi/">
-        <div class="motion-warpper tag-archive-node">
-          <div class="tag-node">
-            <h1>
-              05-03
-              <small>简书-学习</small>
-            </h1>
-          </div>  
-      </div>
-      </a>
-    
-      
-      
-      <a href="https://vincentsui.github.io/zhi-hu-xue-xi/">
-        <div class="motion-warpper tag-archive-node">
-          <div class="tag-node">
-            <h1>
-              05-03
-              <small>知乎-学习</small>
-            </h1>
-          </div>  
-      </div>
-      </a>
+    <span class="meta-item">
+      <i class="fa fa-clock-o"></i>
+      <span>4分钟</span>
+    </span>
+    <span class="meta-item">
+      <span class="post-meta-divider">|</span>
+      <i class="fa fa-file-word-o"></i>
+      <span>885<span class="pc-show">字数</span></span>
+    </span>
     
   </div>
-  
-<div class="page bg-color">
-  <ul class="pagination-ul">
-    
-    
-      
-        <li class="pagination-li pagination-active">
-            <a href="/archives/page/../">
-              1
-            </a>
-        </li>
-      
-    
-    
-  </ul>
-</div>
-</div>
+</header>
+            <div class="post-body next-md-body" id="post_body">
+              <h1 id="搜索引擎">搜索引擎</h1>
+<table>
+<thead>
+<tr>
+<th><a href="https://mijisou.com/"> 秘技搜索 </a></th>
+<th><a href="https://yandex.com/">yandex</a></th>
+<th><a href="http://www.bing.com/">Bing</a></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://goobe.io/"> 程序员搜索 </a></td>
+<td><a href="https://magi.com/"> magi </a></td>
+<td><a href="https://mengso.com/"> 萌搜 </a></td>
+</tr>
+<tr>
+<td><a href="https://vincentsui.gitee.io/vincentsui.github.io/">重启存档</a></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h1 id="导航网站">导航网站</h1>
+<table>
+<thead>
+<tr>
+<th><a href="http://ailongmiao.com/"> 龙猫 </a></th>
+<th><a href="https://go.sunbox.cc/"> 阳光导航 </a></th>
+<th><a href="http://ilxdh.com/"> 龙轩导航 </a></th>
+<th><a href="https://dh.woshipm.com/"> 阿猫阿狗 </a></th>
+<th><a href="https://www.no404.me/"> no404 </a></th>
+<th><a href="https://adzhp.cn/">爱达杂货铺</a></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="http://lackar.com/aa/"> AA导航 </a></td>
+<td><a href="https://www.bqrdh.com/">不求人导航</a></td>
+<td><a href="https://dalao.ru/">大佬导航</a></td>
+<td><a href="https://www.daohangwan.com/"> 导航湾 </a></td>
+<td><a href="http://www.waysto.work/"> 沃客导航 </a></td>
+<td><a href="http://www.chongbuluo.com/"> 虫部落 </a></td>
+</tr>
+<tr>
+<td><a href="https://www.bookmarkearth.com/">书签地球</a></td>
+<td><a href="https://youquhome.com/"> 有趣网址 </a></td>
+<td></td>
+<td></td>
+<td><a href="http://www.alloyteam.com/nav/">Web前端导航</a></td>
+<td><a href="https://nav.ujuji.com/">无道书签</a></td>
+</tr>
+<tr>
+<td><a href="https://www.library.ac.cn/">mirror list 学术</a></td>
+<td><a href="http://www.20009.net/">格桑花学术</a></td>
+<td><a href="http://www.4243.net/"> 大木虫 </a></td>
+<td><a href="http://gongwenguan.com/">公文馆</a></td>
+<td><a href="http://www.zoudupai.com/">走读派</a></td>
+<td><a href="http://shu.ziyuandi.cn/">电子书</a></td>
+</tr>
+<tr>
+<td><a href="http://hao.199it.com/">大数据导航</a></td>
+<td><a href="http://123.meibp.com/">新媒体导航</a></td>
+<td><a href="https://www.addog.vip/">营销创意导航</a></td>
+<td><a href="https://www.amz123.com/">亚马逊卖家网</a></td>
+<td><a href="https://hao.shejidaren.com/"> 设计导航 </a></td>
+<td><a href="https://hao.uisdc.com/"> 优设导航 </a></td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h1 id="常用">常用</h1>
+<table>
+<thead>
+<tr>
+<th><a href="https://www.douban.com/"> 豆瓣 </a></th>
+<th><a href="https://www.jianshu.com/"> 简书 </a></th>
+<th><a href="https://www.zhihu.com/"> 知乎 </a></th>
+<th><a href="https://www.wukong.com/"> 悟空问答 </a></th>
+<th><a href="https://zh.m.wikihow.com">Wikihow </a></th>
+<th><a href="https://www.ipaperclip.net"> 回形针</a></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://tophub.today/"> 今日热榜 </a></td>
+<td><a href="https://www.toutiao.com/"> 今日头条 </a></td>
+<td><a href="https://wiki.mbalib.com/"> MBA智库 </a></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="http://www.weather.com.cn/radar/index.shtml?DB"> 雷达天气 </a></td>
+<td><a href="https://jobui.com/"> 职友集  </a></td>
+<td><a href="https://www.v2ex.com"> V2EX </a></td>
+<td><a href="https://www.linkedin.com/"> 领英 </a></td>
+<td><a href="http://www.officeplus.cn/Template/Home.shtml"> OfficePLUS模板 </a></td>
+<td><a href="https://github.com/dyweb/awesome-resume-for-chinese"> 简历模板</a></td>
+</tr>
+<tr>
+<td><a href="https://www.oschina.net/"> 开源技术 </a></td>
+<td><a href="http://rank.kkj.cn/?hddog"> 快科技 </a></td>
+<td><a href="https://www.expreview.com/"> 超能网 </a></td>
+<td><a href="https://sunbox.cc/"> 阳光盒子 </a></td>
+<td><a href="https://www.runningcheese.com/"> 奔跑中的奶酪 </a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="http://zxgk.court.gov.cn/"> 执行信息公开 </a></td>
+<td><a href="https://wenshu.court.gov.cn/"> 裁判文书 </a></td>
+<td><a href="http://gsxt.gdgs.gov.cn/"> 企业信用信息 </a></td>
+<td><a href="https://github.com/ZGWS88/TI"> 公司黑名单 </a></td>
+<td><a href="https://www.similarsitesearch.com/cn/"> 相似网站  </a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h1 id="新闻">新闻</h1>
+<p>|<a href="http://xinhuanet.com/"> 新华网 </a>|<a href="https://www.thepaper.cn/"> 澎湃 </a>|<a href="https://www.jiemian.com/"> 界面 </a>|<a href="http://www.caixin.com/"> 财新网 </a>|</p>
+<hr>
+<h1 id="影视">影视</h1>
+<table>
+<thead>
+<tr>
+<th><a href="https://dianliang521.github.io/xindianliangshipin/index.html"> 新点亮视频 </a></th>
+<th><a href="http://www.66s.cc"> 6V电影 </a></th>
+<th><a href="https://live.48.cn/Index/main/club/1"> snh48直播 </a></th>
+<th><a href="http://www.mvcat.com/"> mvcat </a></th>
+<th><a href="https://ddrk.me/">低端影视</a></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="http://vipjx.info/">全网vip解析</a></td>
+<td><a href="http://czjx8.com/"> 船长解析 </a></td>
+<td><a href="https://jiexi.bqrdh.com/">vip视频解析</a></td>
+<td><a href="https://www.ting22.com/">22有声小说</a></td>
+<td><a href="https://www.rarbgmirror.com/i">RARBG</a></td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h1 id="工具">工具</h1>
+<table>
+<thead>
+<tr>
+<th><a href="https://www.toolnb.com/"> 在线工具 </a></th>
+<th><a href="http://tools.jb51.net/"> 脚本之家 </a></th>
+<th><a href="https://distrotest.net/"> 在线Linux </a></th>
+<th><a href="https://www.bt.cn/"> 宝塔面板 </a></th>
+<th><a href="https://gridea.dev/"> Gridea  </a></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://github.com/Awesome-Windows/Awesome"> Awesome Windows </a></td>
+<td><a href="https://www.lanzous.com/b674789"> HEU KMS</a></td>
+<td><a href="https://www.ventoy.net/cn/index.html"> 多系统启动u盘 </a></td>
+<td><a href="https://flourish.studio/"> 数据可视化 </a></td>
+<td><a href="http://rufus.ie/"> rufus  </a></td>
+</tr>
+<tr>
+<td><a href="http://www.chuyu.me/zh-Hans/index.html"> Dism++ </a></td>
+<td><a href="http://zyplayer.fun/"> ZY Player </a></td>
+<td><a href="https://www.lanzous.com/b0gw7r0h"> PotPlayer </a></td>
+<td><a href="https://jsznopi.lanzous.com/b01h6ckzc">聚云搜</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="https://github.com/We5ter/Scanners-Box/blob/master/README_CN.md"> 黑客工具箱 </a></td>
+<td><a href="https://greasyfork.org/zh-CN/scripts"> 脚本 </a></td>
+<td><a href="http://houyi.shenjian.io/?bd&amp;utm=search&amp;b_scene_zt=1"> 采集器 </a></td>
+<td><a href="http://24mail.chacuo.net/"> 临时邮箱 </a></td>
+<td><a href="https://t.odmail.cn"> 教育临时邮箱  </a></td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h1 id="新媒体">新媒体</h1>
+<table>
+<thead>
+<tr>
+<th><a href="http://www.wenangou.com/"> 文案狗 </a></th>
+<th><a href="https://mp.yidianzixun.com/"> 一点号 </a></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="http://index.baidu.com/v2/index.html"> 百度指数 </a></td>
+<td><a href="https://index.toutiao.com/"> 头条指数 </a></td>
+<td><a href="https://ziyuan.baidu.com/"> 百度搜索资源 </a></td>
+<td><a href="https://xiaomark.com/"> 小码短连接 </a></td>
+</tr>
+<tr>
+<td><a href="http://data.xiguaji.com/"> 西瓜数据 </a></td>
+<td><a href="https://www.chanmama.com/"> 婵妈妈 </a></td>
+<td><a href="https://www.qimai.cn/"> 七麦数据</a></td>
+<td><a href="https://www.biliob.com/"> BiliOB观测者</a></td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h1 id="购物">购物</h1>
+<table>
+<thead>
+<tr>
+<th><a href="https://www.smzdm.com/"> 什么值得买 </a></th>
+<th><a href="https://post.smzdm.com/hot_30/"> 30天热文 什么值得买 </a></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://pub.alimama.com/"> 淘宝联盟 </a></td>
+<td><a href="https://jinbao.pinduoduo.com/"> 多多进宝 </a></td>
+<td><a href="https://youhui.pinduoduo.com/"> 拼多多优惠 </a></td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h1 id="网络工程师">网络工程师</h1>
+<table>
+<thead>
+<tr>
+<th><a href="http://bbs.hh010.com/"> 鸿鹄论坛 </a></th>
+<th><a href="http://bbs.vlan5.com/"> 攻城狮论坛 </a></th>
+<th><a href="http://www.ccietea.com/"> 红茶三杯 </a></th>
+<th><a href="https://ccna60d.xfoss.com/"> 60天通过CCNA考试 </a></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://mirrors.tuna.tsinghua.edu.cn/">  清华大学开源站 </a></td>
+<td><a href="https://developer.aliyun.com/mirror">  阿里云开源站 </a></td>
+<td><a href="http://mirrors.163.com/">  网易开源站 </a></td>
+<td><a href="https://hub.daocloud.io/"> docker 镜像站  </a></td>
+</tr>
+<tr>
+<td><a href="https://www.ioiox.com/"> 思有云 </a></td>
+<td><a href="https://shumeipai.nxez.com/"> 树莓派实验室 </a></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h1 id="国外">国外</h1>
+<table>
+<thead>
+<tr>
+<th><a href="https://www.google.com/"> google </a></th>
+<th><a href="https://92.247.181.40/"> inoreader </a></th>
+<th><a href="https://twitter.com/"> twitter </a></th>
+<th><a href="https://youtube.com/"> youtube </a></th>
+<th><a href="https://www.tumblr.com/"> tumble </a></th>
+<th><a href="http://www.reddit.com"> readdit </a></th>
+</tr>
+</thead>
+<tbody></tbody>
+</table>
+<hr>
+<h1 id="学习">学习</h1>
+<table>
+<thead>
+<tr>
+<th><a href="https://open.163.com/"> 网易公开课 </a></th>
+<th><a href="https://study.163.com/">网易云课堂</a></th>
+<th><a href="https://ke.qq.com/"> 腾讯课堂 </a></th>
+<th><a href="https://ilearningx.huawei.com/portal/"> huawei </a></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://next.xuetangx.com/"> 学堂在线 </a></td>
+<td><a href="https://www.icourse163.org/">中国大学MOOC</a></td>
+<td><a href="https://www.imooc.com/"> 慕课网 </a></td>
+<td><a href="https://yixi.tv/"> 一席 </a></td>
+</tr>
+<tr>
+<td><a href="https://www.ichunqiu.com/"> i春秋  </a></td>
+<td><a href="https://www.jikexueyuan.com/"> 极客学院  </a></td>
+<td><a href="https://live.freebuf.com/"> freebuf公开课  </a></td>
+<td><a href="https://www.shiyanlou.com/"> 实验楼 </a></td>
+</tr>
+<tr>
+<td><a href="https://space.bilibili.com/8188433/"> TED君  </a></td>
+<td><a href="https://space.bilibili.com/386871393/"> SCOTTHYOUNG  </a></td>
+<td><a href="https://www.bilibili.com/video/BV12b4111733"> 谢孟媛英语  </a></td>
+<td><a href="https://www.bilibili.com/video/BV1Nb411w7Gm"> 柯林斯词频  </a></td>
+</tr>
+<tr>
+<td><a href="https://space.bilibili.com/453972/"> 阿狸才不是受  </a></td>
+<td><a href="https://space.bilibili.com/133901828/"> 二斤啦啦啦啦  </a></td>
+<td><a href="https://space.bilibili.com/338748561/"> 喵喵折App  </a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="https://space.bilibili.com/105690033/"> 闫辉6IE  </a></td>
+<td><a href="https://space.bilibili.com/392202707/"> 马哥高薪IT实战 </a></td>
+<td><a href="https://space.bilibili.com/412127397/"> 乾颐堂  </a></td>
+<td><a href="https://www.bilibili.com/video/BV1Bx411g7gD"> PowerShell 3.0  </a></td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h1 id="安全网站">安全网站</h1>
+<table>
+<thead>
+<tr>
+<th><a href="https://navisec.it/"> navisec </a></th>
+<th><a href="http://www.freebuf.com"> frebuf </a></th>
+<th><a href="https://www.ichunqiu.com"> i春秋 </a></th>
+<th><a href="https://www.secpulse.com/"> 安全脉搏 </a></th>
+<th><a href="https://www.sec-wiki.com/"> 安全wiki </a></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://xz.aliyun.com/"> 先知论坛 </a></td>
+<td><a href="http://bbs.pediy.com/"> 看雪论坛 </a></td>
+<td></td>
+<td><a href="https://juejin.im/"> 掘金 </a></td>
+<td><a href="https://www.4hou.com"> 嘶吼 </a></td>
+</tr>
+<tr>
+<td><a href="https://gitee.com/"> 码云 </a></td>
+<td><a href="https://about.gitlab.com/"> gitlab </a></td>
+<td><a href="https://coding.net/"> coding托管 </a></td>
+<td><a href="https://www.cnblogs.com/"> 博客园 </a></td>
+<td><a href="https://github.com/riusksk/secbook">信息安全书单</a></td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h1 id="小说">小说</h1>
+<table>
+<thead>
+<tr>
+<th><a href="https://www.jiumodiary.com/"> 鸠摩搜索  </a></th>
+<th><a href="https://www.shiyisoushu.com/"> 时宜搜书 </a></th>
+<th><a href="https://ebook.huzerui.com/"> 熊猫搜书 </a></th>
+<th><a href="https://www.yuedu.pro/"> 阅读链 </a></th>
+<th><a href="https://book.zhishikoo.com/"> 书籍知识库 </a></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="http://www.zxcs.me/"> 知轩藏书  </a></td>
+<td><a href="https://www.biquge5200.cc/"> 笔趣阁 </a></td>
+<td></td>
+<td></td>
+<td><a href="http://cn.epubee.com">epubee</a></td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h1 id="软件网站">软件网站</h1>
+<table>
+<thead>
+<tr>
+<th><a href="https://www.52pojie.cn/forum-16-1.html"> 吾爱破解  </a></th>
+<th><a href="http://www.appinn.com/"> 小众软件 </a></th>
+<th><a href="https://www.ghpym.com/">果核剥壳</a></th>
+<th><a href="http://www.ypojie.com/">易破解</a></th>
+<th><a href="https://disk.misiai.com/">懒盘聚合</a></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="http://yx.bsh.me/">异星软件</a></td>
+<td><a href="https://www.aiweibk.com/">艾薇下载站</a></td>
+<td><a href="https://www.portablesoft.org/">绿色资源网</a></td>
+<td><a href="http://pan.lanzou.com/u/%E5%BD%AA%E7%85%8Cqq1846055318"> bhvip软件团队  </a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h1 id="下载软件">下载软件</h1>
+<table>
+<thead>
+<tr>
+<th><a href="https://carrotchou.lanzous.com/b0gwopzc"> IDM </a></th>
+<th><a href="https://subhra74.github.io/xdm/"> XDM </a></th>
+<th><a href="http://bbs.xiaokanba.com/download.html"> 闪电下载 </a></th>
+<th><a href="https://motrix.app/zh-CN"> Motrix </a></th>
+<th><a href="http://aria2c.com/archiver/aria2.zip"> aria2懒人包 </a></th>
+<th><a href="https://raw.githubusercontent.com/ngosang/trackerslist/master/trackers_best.txt">trackers</a></th>
+</tr>
+</thead>
+<tbody></tbody>
+</table>
+<hr>
+<h1 id="科学上网">科学上网</h1>
+<p><a href="https://github.com/Dreamacro/clash"> clash </a><br>
+<a href="https://github.com/2dust/v2rayN/releases"> v2ray </a></p>
+<hr>
+<h1 id="图库和图床">图库和图床</h1>
+<table>
+<thead>
+<tr>
+<th><a href="http://huaban.com/"> 花瓣网 </a></th>
+<th><a href="https://m.pixivic.com/dailyRank?VNK=8b40953b">pixiv-china</a></th>
+<th><a href="https://imgkr.com">图壳</a></th>
+<th><a href="https://niupic.com/"> 牛图网 </a></th>
+<th><a href="https://sm.ms/"> 图床sm </a></th>
+<th><a href="https://www.superbed.cn/"> 聚合图床 </a></th>
+</tr>
+</thead>
+<tbody></tbody>
+</table>
+<hr>
+<h1 id="无版权图片素材">无版权图片素材</h1>
+<p>使用图片时，一定要区分该图片授给网站的类型，认真阅读网站协议条款，避免日后不必要的纠纷</p>
+<table>
+<thead>
+<tr>
+<th><a href="https://pixabay.com"> Pixabay </a></th>
+<th><a href="http://www.polayoutu.com"> 泼辣有图 </a></th>
+<th><a href="https://unsplash.com"> Unsplash </a></th>
+<th><a href="https://pngtree.com"> pngtree </a></th>
+<th><a href="https://foter.com"> Foter </a></th>
+<th><a href="https://www.foodiesfeed.com"> Foodiesfeed </a></th>
+</tr>
+</thead>
+<tbody></tbody>
+</table>
+<hr>
+<h1 id="游戏">游戏</h1>
+<table>
+<thead>
+<tr>
+<th><a href="https://3dmgame.com"> 3dm  </a></th>
+<th><a href="https://gamersky.com"> 游民星空 </a></th>
+<th><a href="https://www.ali213.net">游侠网</a></th>
+<th><a href="https://github.com/EmuELEC/EmuELEC/releases"> 模拟器EmuELEC </a></th>
+<th><a href="http://pewpewpew.work"> 枪炮世界  </a></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://www.taptap.com/"> TapTap </a></td>
+<td><a href="https://www.25game.com/"> 爱吾游戏 </a></td>
+<td><a href="https://www.vqs.com/"> 骑士下载 </a></td>
+<td><a href="http://game333.net"> 游乐园 </a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h1 id="时尚">时尚</h1>
+<table>
+<thead>
+<tr>
+<th><a href="http://www.yoka.com/dna/m/"> yoka </a></th>
+<th><a href="http://enrz.com/"> 男人装 </a></th>
+</tr>
+</thead>
+<tbody></tbody>
+</table>
+<hr>
+<h1 id="rss">RSS</h1>
+<table>
+<thead>
+<tr>
+<th><a href="https://theoldreader.com/"> tholdreader </a></th>
+<th><a href="https://www.ioiox.com/archives/94.html"> 免费rsshub和ttrss </a></th>
+<th><a href="https://huginn.cn/">huginn</a></th>
+</tr>
+</thead>
+<tbody></tbody>
+</table>
+<hr>
+<h1 id="其他">其他</h1>
+<table>
+<thead>
+<tr>
+<th><a href="https://dzhi.droppages.com/"> 蓝色导航 </a></th>
+<th><a href="https://xn--kcrx7j5tego1bv9fbre.com"> 福利网址导航 </a></th>
+<th><a href="https://porndabster.com/"> porndabster  </a></th>
+<th><a href="https://theporndude.com/"> theporndude  </a></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="http://www.timliao.com/bbs/forumdisplay.php?fid=18"> 提姆正妹  </a></td>
+<td><a href="https://www.mzitu.com/">妹子图</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="https://app.swag.live/"> swag直播  </a></td>
+<td><a href="https://coub.com/"> coub </a></td>
+<td><a href="http://www.yaojiwu.com/"> 妖姬屋  </a></td>
+<td><a href="http://xinmadou.cn/">新麻豆</a></td>
+</tr>
+<tr>
+<td><a href="https://www.crazyshit.com/"> crazshit  </a></td>
+<td></td>
+<td></td>
+<td><a href="http://38.103.161.16/forum/">第一会所</a></td>
+</tr>
+<tr>
+<td><a href="https://sleazyfork.org/zh-CN/scripts"> porn脚本  </a></td>
+<td><a href="https://xvideosjx.com/">xvideos</a></td>
+<td><a href="https://whereisph.com/">pornhub</a></td>
+<td><a href="https://xnxx5.tk/">xnxx</a></td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h1 id="磁力">磁力</h1>
+<table>
+<thead>
+<tr>
+<th><a href="https://www.btxqz.com"> 比特星球 </a></th>
+<th><a href="https://thepiratebay10.org/">海盗网</a>   <a href="http://thepiratebay.se.net/">海盗网</a></th>
+<th><a href="https://www.yuhuage.club/">雨花阁磁力</a></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://www.tokyotosho.info/">东京图书馆</a></td>
+<td><a href="https://btsow.cam/convert/magnet">BTSOW</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<hr>
 
-          </section>
+            </div>
+            <div class="post-footer">
+  <ul class="post-copyright">
+    <li class="post-copyright-author">
+      <strong>本文作者：</strong>
+      适用 Gemini,Pisces 布局,版权说明需配置
+    </li>
+    <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://vincentsui.github.io/chong-qi-wang-zhi-dao-hang/" title="重启网址导航">https://vincentsui.github.io/chong-qi-wang-zhi-dao-hang/</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong>
+      本博客所有文章除特别声明外，均采用<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i> BY-NC-SA</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+  <div class="tags">
+    
+  </div>
+  <div class="nav">
+    <div class="nav-prev">
+      
+    </div>
+    <div class="nav-next">
+      
+        <a class="nav-pc-next" title="赚钱" href="https://vincentsui.github.io/zhuan-qian/">赚钱</a>
+        <a class="nav-mobile-next" title="赚钱" href="https://vincentsui.github.io/zhuan-qian/">下一篇</a>
+        <i class="fa fa-chevron-right"></i>
+      
+    </div>
+  </div>
+</div>
+            
+  
+
+          </div>
         </div>
       </div>
     </div>
@@ -469,6 +1272,36 @@
   // 代码高亮
   hljs.initHighlightingOnLoad();
 
+</script>
+    <div class="light-box" id="light_box"></div>
+<script>
+  let imgs = document.querySelectorAll('.post-body img');
+  let lightBox = document.querySelector('#light_box');
+  lightBox.addEventListener('mousedown', (e) => {
+    e.preventDefault()
+  })
+  lightBox.addEventListener('mousewheel', (e) => {
+    e.preventDefault()
+  })
+  let width = window.innerWidth * 0.8;
+  lightBox.onclick = () => {
+    let img = lightBox.querySelector('img');
+    lightBox.style = '';
+    img && img.remove();
+  }
+  imgs.forEach(item => {
+    item.onclick = function (e) {
+      let lightImg = document.createElement('img');
+      lightImg.src = this.src;
+      lightBox.style = `height: 100%; opacity: 1; background-color: rgba(0, 0, 0, 0.5);cursor: zoom-out;`;
+      lightImg.style = `width: ${width}px; border: 1px solid #fff; border-radius: 2px;`;
+      lightImg.onclick = function () {
+        lightBox.style = '';
+        this.remove();
+      }
+      lightBox.append(lightImg);
+    }
+  })
 </script>
   </div>
 </body>
@@ -1736,7 +2569,6 @@
   escapeMap.set('&quot;', '"');
   escapeMap.set('&amp;', '&');
 </script> -->
-
 
 
 </html>
