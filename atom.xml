@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://vincentsui.github.io</id>
     <title>重生博客</title>
-    <updated>2021-05-03T08:03:12.092Z</updated>
+    <updated>2021-05-03T13:18:30.346Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://vincentsui.github.io"/>
     <link rel="self" href="https://vincentsui.github.io/atom.xml"/>
@@ -11,12 +11,13 @@
     <icon>https://vincentsui.github.io/favicon.ico</icon>
     <rights>All rights reserved 2021, 重生博客</rights>
     <entry>
-        <title type="html"><![CDATA[重启网址导航]]></title>
-        <id>https://vincentsui.github.io/chong-qi-wang-zhi-dao-hang/</id>
-        <link href="https://vincentsui.github.io/chong-qi-wang-zhi-dao-hang/">
+        <title type="html"><![CDATA[重启导航]]></title>
+        <id>https://vincentsui.github.io/chong-qi-dao-hang/</id>
+        <link href="https://vincentsui.github.io/chong-qi-dao-hang/">
         </link>
-        <updated>2021-05-03T07:57:36.000Z</updated>
-        <content type="html"><![CDATA[<h1 id="搜索引擎">搜索引擎</h1>
+        <updated>2021-05-03T13:18:10.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="重启网站导航">重启网站导航</h1>
+<h1 id="搜索引擎">搜索引擎</h1>
 <table>
 <thead>
 <tr>
@@ -135,8 +136,61 @@
 </tbody>
 </table>
 <hr>
-<h1 id="新闻">新闻</h1>
-<p>|<a href="http://xinhuanet.com/"> 新华网 </a>|<a href="https://www.thepaper.cn/"> 澎湃 </a>|<a href="https://www.jiemian.com/"> 界面 </a>|<a href="http://www.caixin.com/"> 财新网 </a>|</p>
+<h1 id="阅读">阅读</h1>
+<table>
+<thead>
+<tr>
+<th><a href="http://xinhuanet.com/"> 新华网 </a></th>
+<th><a href="https://31sanyi.neocities.org/user.html">数字图书馆</a></th>
+<th><a href="https://www.mvyxws.com/">医学微视</a></th>
+<th><a href="http://guozhivip.com/rank/">果汁排行</a></th>
+<th><a href="https://www.jobui.com/">职友集</a></th>
+<th><a href="https://www.dydata.io/">镝数据</a></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://www.thepaper.cn/"> 澎湃 </a></td>
+<td><a href="https://www.zjlib.cn/">浙江图书馆</a></td>
+<td><a href="https://topbook.cc/overview">topbook</a></td>
+<td></td>
+<td><a href="https://github.com/formulahendry/955.WLB">955</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="https://www.jiemian.com/"> 界面 </a></td>
+<td><a href="https://www.aminer.cn/">AMiner</a></td>
+<td><a href="http://data.eastmoney.com/money/calc/FundCalcDTSY.html">基金定投计算</a></td>
+<td><a href="https://www.jane7.com/">简七理财</a></td>
+<td><a href="https://www.douban.com/doulist/">豆列推举</a></td>
+<td><a href="http://neikuw.com/">内酷网</a></td>
+</tr>
+<tr>
+<td><a href="http://www.caixin.com/"> 财新网 </a></td>
+<td><a href="https://ebook2.lorefree.com/">LoreFree</a></td>
+<td><a href="https://www.yeduk.net/">library</a></td>
+<td><a href="https://zh.4lib.org/">zlibrary</a></td>
+<td><a href="https://pan.shudan.vip/">随机阅读</a></td>
+<td><a href="http://www.tuiliw.com/">推书</a></td>
+</tr>
+<tr>
+<td><a href="https://mubu.com/explore#16">幕布精选社区</a></td>
+<td><a href="https://gitmind.cn/app/template?lang=zh">gitmind模板</a></td>
+<td><a href="http://xueba.youdao.com/web/index.html">有道学霸笔记</a></td>
+<td><a href="https://zhimap.com/gallery">zhimap社区</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
 <hr>
 <h1 id="影视">影视</h1>
 <table>
@@ -146,7 +200,7 @@
 <th><a href="http://www.66s.cc"> 6V电影 </a></th>
 <th><a href="https://live.48.cn/Index/main/club/1"> snh48直播 </a></th>
 <th><a href="http://www.mvcat.com/"> mvcat </a></th>
-<th><a href="https://ddrk.me/">低端影视</a></th>
+<th></th>
 </tr>
 </thead>
 <tbody>
@@ -184,7 +238,7 @@
 <td><a href="http://zyplayer.fun/"> ZY Player </a></td>
 <td><a href="https://www.lanzous.com/b0gw7r0h"> PotPlayer </a></td>
 <td><a href="https://jsznopi.lanzous.com/b01h6ckzc">聚云搜</a></td>
-<td></td>
+<td><a href="https://www.termius.com/windows">termius</a></td>
 </tr>
 <tr>
 <td><a href="https://github.com/We5ter/Scanners-Box/blob/master/README_CN.md"> 黑客工具箱 </a></td>
@@ -195,6 +249,13 @@
 </tr>
 </tbody>
 </table>
+<ul>
+<li>centos BlueSkyXN 综合工具箱
+<ul>
+<li>wget -O box.sh https://raw.githubusercontent.com/BlueSkyXN/SKY-BOX/main/box.sh &amp;&amp; chmod +x box.sh &amp;&amp; clear &amp;&amp; ./box.sh</li>
+</ul>
+</li>
+</ul>
 <hr>
 <h1 id="新媒体">新媒体</h1>
 <table>
@@ -202,6 +263,7 @@
 <tr>
 <th><a href="http://www.wenangou.com/"> 文案狗 </a></th>
 <th><a href="https://mp.yidianzixun.com/"> 一点号 </a></th>
+<th></th>
 <th></th>
 <th></th>
 </tr>
@@ -212,12 +274,21 @@
 <td><a href="https://index.toutiao.com/"> 头条指数 </a></td>
 <td><a href="https://ziyuan.baidu.com/"> 百度搜索资源 </a></td>
 <td><a href="https://xiaomark.com/"> 小码短连接 </a></td>
+<td></td>
 </tr>
 <tr>
 <td><a href="http://data.xiguaji.com/"> 西瓜数据 </a></td>
 <td><a href="https://www.chanmama.com/"> 婵妈妈 </a></td>
 <td><a href="https://www.qimai.cn/"> 七麦数据</a></td>
 <td><a href="https://www.biliob.com/"> BiliOB观测者</a></td>
+<td><a href="http://www.qian-gua.com/">千瓜数据</a></td>
+</tr>
+<tr>
+<td><a href="https://www.135editor.com/">135编辑器</a></td>
+<td><a href="https://www.5ce.com/?t=zhihu&amp;id=398193048">5118编辑器</a></td>
+<td><a href="https://www.5118.com/">5118营销大数据</a></td>
+<td></td>
+<td></td>
 </tr>
 </tbody>
 </table>
@@ -261,7 +332,7 @@
 <td><a href="https://www.ioiox.com/"> 思有云 </a></td>
 <td><a href="https://shumeipai.nxez.com/"> 树莓派实验室 </a></td>
 <td></td>
-<td></td>
+<td><a href="https://mirrors.huaweicloud.com/">华为开源镜像</a></td>
 </tr>
 </tbody>
 </table>
