@@ -1,4 +1,4 @@
-# 重启导航 [学习](https://vincentsui.github.io/%E5%AD%A6%E4%B9%A0)
+# 重启导航 [学习](https://vincentsui.github.io/%E5%AD%A6%E4%B9%A0) [赚钱](https://vincentsui.github.io/%E8%B5%9A%E9%92%B1)
 
 | [豆瓣](https://www.douban.com/)             | [果汁排行](http://guozhivip.com/rank/)                     | [gitmind模板](https://gitmind.cn/app/template?lang=zh) | [新华网](http://xinhuanet.com/)                              | [龙轩导航](http://ilxdh.com/)              | [magi](https://magi.com/)     |
 | ------------------------------------------- | ---------------------------------------------------------- | ------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------ | ----------------------------- |
